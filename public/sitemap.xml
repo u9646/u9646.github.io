@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.hotlinkhub.com/mongodb-query-and-projection-operators/</loc>
+    <loc>https://www.hotlinkhub.com/mongodb-curd-api/</loc>
     
-    <lastmod>2020-03-08T12:57:08.706Z</lastmod>
+    <lastmod>2020-03-15T06:59:46.031Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.hotlinkhub.com/mongodb-curd-api/</loc>
+    <loc>https://www.hotlinkhub.com/mongodb-query-and-projection-operators/</loc>
     
-    <lastmod>2020-03-08T06:42:14.300Z</lastmod>
+    <lastmod>2020-03-15T06:59:01.721Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink-2/</loc>
+    
+    <lastmod>2020-03-15T06:58:17.815Z</lastmod>
     
   </url>
   

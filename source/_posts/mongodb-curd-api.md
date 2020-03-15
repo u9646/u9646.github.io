@@ -5,7 +5,7 @@ tags:
   - mongodb
 ---
 
-> 基于mongodb v4.2 https://docs.mongodb.com/manual/introduction/
+> 基于[mongodb v4.2](https://docs.mongodb.com/manual/introduction/)
 
 ## 插入数据
 
