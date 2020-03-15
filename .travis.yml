@@ -10,7 +10,7 @@ deploy:
   provider: releases
   user: $USER
   password: $PWD
-  file_glob: true
   file: public/*
+  skip_cleanup: true
   on:
     branch: pages
