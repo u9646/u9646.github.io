@@ -3,11 +3,14 @@ node_js:
   - 10
 before_install:
   - yarn install
+scripts:
+  - hexo g
 
 deploy:
+  provider: releases
   user: $USER
   password: $PWD
-  provider: script
-  script: yarn build
+  file_glob: true
+  file: public/*
   on:
     branch: pages
