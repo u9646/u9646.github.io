@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /js/
+Disallow: /css/
+Disallow: /about/
+
+Sitemap: https://www.hotlinkhub.com/sitemap.xml
+Sitemap: https://www.hotlinkhub.com/baidusitemap.xml
