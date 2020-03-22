@@ -2,7 +2,7 @@
 title: 技术精选 - 第1期
 date: 2020-03-06 11:57:37
 tags:
-  - hotlink
+  - 精选
 ---
 
 [网站性能指标这么多，你到底选对了吗](https://mp.weixin.qq.com/s/ITb0IWzLPj715NUgL7C4HA)

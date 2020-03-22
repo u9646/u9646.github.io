@@ -1,6 +1,9 @@
 ### 开发
 `hexo s`
 
+### 新建文章
+`hexo new post {post title}`
+
 ### 打包
 `hexo g`
 

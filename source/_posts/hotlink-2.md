@@ -2,7 +2,7 @@
 title: 技术精选 - 第2期
 date: 2020-03-15 14:50:12
 tags:
-  - hotlink
+  - 精选
 ---
 
 [具有“脚本魔力”的属性们](https://mp.weixin.qq.com/s/8znEKWxCahJE1zSf9Zky_Q)
