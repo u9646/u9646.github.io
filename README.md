@@ -2,6 +2,7 @@
 `hexo s`
 
 ### 新建文章
+> Switch to pages branch
 `hexo new post {post title}`
 
 ### 打包
