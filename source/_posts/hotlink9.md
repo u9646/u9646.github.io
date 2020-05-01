@@ -5,6 +5,9 @@ tags:
   - 精选
 ---
 
+### 前端收藏家（微信号: fedaily）
+##### 收集全网优秀前端技术资讯，与你分享，共同成长。
+
 [2020前端性能优化清单（四）](https://mp.weixin.qq.com/s?__biz=MzI5NjIzNjA1Nw==&mid=2247484178&idx=1&sn=db9ce805b7eff5eec7cd93a259adfd88&scene=21#wechat_redirect)
 一份全面的性能优化指南
 
