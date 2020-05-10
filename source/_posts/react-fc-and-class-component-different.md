@@ -368,3 +368,6 @@ React函数总是捕获他们的值 —— 现在我们也知道这是为什么�
 ![pikachu](https://overreacted.io/fc3bddf6d4ca14bc77917ac0cfad3608/pikachu.gif)
 
 它们是完全不同的宝可梦哦。
+
+### 前端收藏家（微信号: fedaily）
+##### 收集全网优秀前端技术资讯，与你分享，共同成长。
