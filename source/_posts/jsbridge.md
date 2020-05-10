@@ -249,3 +249,6 @@ export default function getUserInfo() {
 这种方案就是H5构造一个iframe，通过给iframe设置src发起请求，然后客户端拦截请求实现。
 
 一般会将url设为一个特殊的字符串，比如`https://__bridge__`这个样子，然后后面跟上我们需要传递的数据，包括一个callback函数名，客户拦截这种请求，然后通过callback将数据传递回来。
+
+### 前端收藏家（微信号: fedaily）
+##### 收集全网优秀前端技术资讯，与你分享，共同成长。

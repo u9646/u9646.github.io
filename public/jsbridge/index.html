@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是jsbridge"><span class="toc-text">什么是jsbridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsbridge原理"><span class="toc-text">jsbridge原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方案一：注入API"><span class="toc-text">方案一：注入API</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IOS-UIWebView"><span class="toc-text">IOS UIWebView</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IOS-WKWebView"><span class="toc-text">IOS WKWebView</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Android"><span class="toc-text">Android</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方案二：url拦截"><span class="toc-text">方案二：url拦截</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是jsbridge"><span class="toc-text">什么是jsbridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsbridge原理"><span class="toc-text">jsbridge原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方案一：注入API"><span class="toc-text">方案一：注入API</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#IOS-UIWebView"><span class="toc-text">IOS UIWebView</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#IOS-WKWebView"><span class="toc-text">IOS WKWebView</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Android"><span class="toc-text">Android</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方案二：url拦截"><span class="toc-text">方案二：url拦截</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
 </div>
     
 </div>
@@ -185,7 +185,7 @@
 
 <h4 id="方案二：url拦截"><a href="#方案二：url拦截" class="headerlink" title="方案二：url拦截"></a>方案二：url拦截</h4><p>这种方案就是H5构造一个iframe，通过给iframe设置src发起请求，然后客户端拦截请求实现。</p>
 <p>一般会将url设为一个特殊的字符串，比如<code>https://__bridge__</code>这个样子，然后后面跟上我们需要传递的数据，包括一个callback函数名，客户拦截这种请求，然后通过callback将数据传递回来。</p>
-
+<h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5>
         
             <div class="donate-container">
     <div class="donate-button">
