@@ -1,3 +1,4 @@
+https://www.hotlinkhub.com/jsbridge/
 https://www.hotlinkhub.com/hotlink13/
 https://www.hotlinkhub.com/hotlink12/
 https://www.hotlinkhub.com/how-go-to-ts/
@@ -7,4 +8,3 @@ https://www.hotlinkhub.com/hotlink9/
 https://www.hotlinkhub.com/hotlink8/
 https://www.hotlinkhub.com/hotlink7/
 https://www.hotlinkhub.com/js-prototype/
-https://www.hotlinkhub.com/csp-frame-ancestors-vs-x-frame-options/
