@@ -1,5 +1,5 @@
 ---
-title: [第15期]为新的Facebook.com重建我们的技术栈 & HTTP/3原理与实践
+title: 第15期 为新的Facebook.com重建我们的技术栈 & HTTP/3原理与实践
 date: 2020-05-11 09:34:38
 tags:
   - 精选
