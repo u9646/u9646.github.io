@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        如何模拟实现一个call、apply、bind函数 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#call模拟实现"><span class="toc-text">call模拟实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply模拟实现"><span class="toc-text">apply模拟实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bind模拟实现"><span class="toc-text">bind模拟实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        如何模拟实现一个call、apply、bind函数
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-13 18:34:23</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>首先强烈推荐这位大佬的文章，写的相当棒，后续讨论内容的也是你来我往，分析的很透彻。<br><a href="https://github.com/mqyqingfeng/Blog/issues/11" target="_blank" rel="noopener">JavaScript深入之call和apply的模拟实现</a><br><a href="https://github.com/mqyqingfeng/Blog/issues/12" target="_blank" rel="noopener">JavaScript深入之bind的模拟实现</a></p>
+<p>call, apply, bind这三个方法都可以改变函数内部this指向。区别是call, apply是立即指向该函数，而bind是返回一个新的函数，用于下次调用。</p>
+<p>其中，call和apply的区别是传递函数参数的方式不同，call是一个一个传入，例如call(this, arg1, arg2, arg3)这样。但是apply是通过一个数组传递，比如apply(this, [arg1, arg2, arg3])。</p>
+<h3 id="call模拟实现"><a href="#call模拟实现" class="headerlink" title="call模拟实现"></a>call模拟实现</h3><p>首先我们实现绑定this功能。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 比如我们有一个foo函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 还有一个wechat对象</span></span><br><span class="line"><span class="keyword">const</span> wechat = &#123; name: <span class="string">'fedaily'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们希望实现</span></span><br><span class="line">getName.call(wechat); <span class="comment">// fedaily</span></span><br></pre></td></tr></table></figure>
+
+<p>那么在call内部如何设计能够实现这个功能呢，我们可以联想到将<code>getName</code>方法变成<code>wechat</code>对象里的一个方法，然后通过<code>wechat.getName()</code>，是不是就可以实现这个效果了。</p>
+<p>我们来实践一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span> (<span class="params">context</span>) </span>&#123;</span><br><span class="line">  context.fn = <span class="keyword">this</span>;</span><br><span class="line">  context.fn();</span><br><span class="line">  <span class="keyword">delete</span> context.fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以<code>wechat</code>和<code>getName</code>这个为例，这里的this即getName，context即wechat。<br>我们将<code>getName</code>赋值给<code>wechat</code>对象的<code>fn</code>熟悉，然后通过<code>wechat</code>对象调用，最后删除这个fn属性。（实际中我们肯定不能用fn这个名字，避免和对象原本重复，我们可以用Symbol实现）</p>
+<p>然后我们绑定this的功能就实现。还有传递参数，这个也好办。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ctx, ...args] = <span class="built_in">arguments</span>;</span><br><span class="line">  ctx.fn = <span class="keyword">this</span>;</span><br><span class="line">  ctx.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> ctx.fn;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这里其实用了ES6的语法，但是主要为了更好的说明整个实现过程，理解原理就好</span></span><br></pre></td></tr></table></figure>
+
+<p>这里通过<code>arguments</code>对象去获取传进来的参数以及<code>this</code>。</p>
+<p>然后考虑到函数可能是有返回值的，所以<code>ctx.fn()</code>的执行结果也需要返回。同时this可能为null，那么我们需要将this指向window。</p>
+<p>所以我们再来调整一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ctx, ...args] = <span class="built_in">arguments</span>;</span><br><span class="line">  ctx.fn = <span class="keyword">this</span> || <span class="built_in">window</span>;</span><br><span class="line">  <span class="keyword">const</span> result = ctx.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> ctx.fn;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就模拟实现了一个call方法。</p>
+<h3 id="apply模拟实现"><a href="#apply模拟实现" class="headerlink" title="apply模拟实现"></a>apply模拟实现</h3><p>接上文，我们再来实现一个apply就很容易了。我们直接上代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.apply = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ctx, args] = <span class="built_in">arguments</span>; <span class="comment">// args区别</span></span><br><span class="line">  ctx.fn = <span class="keyword">this</span> || <span class="built_in">window</span>;</span><br><span class="line">  <span class="keyword">const</span> result = ctx.fn(...args);</span><br><span class="line">  <span class="keyword">delete</span> ctx.fn;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bind模拟实现"><a href="#bind模拟实现" class="headerlink" title="bind模拟实现"></a>bind模拟实现</h3><p>bind会返回一个新函数，新函数执行时的this是bind方法的第一个参数。</p>
+<p>根据这些特征，我们可以想到使用apply帮助实现。还是以上面的<code>getName</code>函数为例。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ctx, ...args] = <span class="built_in">arguments</span>;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="keyword">this</span>; <span class="comment">// 这里的this即getName函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    self.applay(ctx, args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，绑定this的功能我们就实现了。然后bind其实是可以传递参数的，bind返回的函数调用的时候也是可以再传递参数的，同时调用bind的方法可能是有返回值的，所以我们处理一下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ctx, ...args] = <span class="built_in">arguments</span>;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="keyword">this</span>; <span class="comment">// 这里的this即getName函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 这下面的arguments其实是调用bind返回的函数，当这个函数调用时传递的参数</span></span><br><span class="line">    <span class="comment">// 同时返回函数执行结果</span></span><br><span class="line">    <span class="keyword">return</span> self.applay(ctx, args.concat(<span class="built_in">arguments</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>bind函数还有一个特性，就是bind返回的函数是可以作为构造函数的，当它作为构造函数时，它之前绑定的this会被忽略。<br>为了保证bind返回的函数能够继承到调用函数的原型(即getName的原型)。所以我们需要修改bind返回函数的原型为this的原型(即getName的原型)。</p>
+<p>我们再来尝试一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> [ctx, args] = <span class="built_in">arguments</span>;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">const</span> fBond = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 注意这里的this不是getName了，而是调用bind之后方法的this</span></span><br><span class="line">    <span class="comment">// const newGetName = getName.bind(this)</span></span><br><span class="line">    <span class="comment">// const n = new newGetName()</span></span><br><span class="line">    <span class="comment">// this就是n</span></span><br><span class="line">    <span class="keyword">return</span> self.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> fBond ? <span class="keyword">this</span> : ctx, args.concat(<span class="built_in">arguments</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  fBond.prototype = self.prototype;</span><br><span class="line">  <span class="keyword">return</span> fBond;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后为了不会修改原来函数的原型，即getName的原型。我们可以通过一个中间函数来继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"Must be function to call bind"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [ctx, args] = <span class="built_in">arguments</span>;</span><br><span class="line">  <span class="keyword">const</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">var</span> fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  <span class="keyword">const</span> fBond = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> self.apply(<span class="keyword">this</span> <span class="keyword">instanceof</span> fBond ? <span class="keyword">this</span> : ctx, args.concat(<span class="built_in">arguments</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 这里将self的原型赋值给来fNOP，后面fBond的原型赋值为new fNOP()，这样就和self的原型断开了</span></span><br><span class="line">  <span class="comment">// 后面再修改fBond的原型也不会影响到self，即getName.prototype</span></span><br><span class="line">  fNOP.prototype = self.prototype;</span><br><span class="line">  fBond.prototype = <span class="keyword">new</span> fNOP();</span><br><span class="line">  <span class="keyword">return</span> fBond;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，我们就实现了一个比较完整的bind方法了。</p>
+<h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
