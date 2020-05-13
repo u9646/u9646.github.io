@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第17期 Vue3.0之前你必须知道的TypeScript实战技巧 &amp; 移动端开发的兼容适配与性能优化干货分享 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第17期 Vue3.0之前你必须知道的TypeScript实战技巧 &amp; 移动端开发的兼容适配与性能优化干货分享
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-13 10:12:22</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247485359&idx=2&sn=01e110c4d6f56b1415125eccc19524c2&scene=21#wechat_redirect" target="_blank" rel="noopener">关于Node.js中内存管理的思考与实践</a></p>
+<p>随着Node的发展，JavaScript的运行已经不再局限于运行在浏览器中了，Node在服务端的应用使得越来越多的问题也显现出来。对于刚接触JavaScript的开发者来说，基本上很少会想到内存分配或者内存泄露的问题，为了跟上潮流，就讲解一下Node是如何合理高效地使用内存，防止内存泄漏。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg5NDEyMzA2NQ==&mid=2247485138&idx=1&sn=6efe935ee8578a5b71ad64d2300179c2&scene=21#wechat_redirect" target="_blank" rel="noopener">Vue3.0之前你必须知道的TypeScript实战技巧</a></p>
+<p>很多人对TypeScript的使用还停留在基本操作上,其实 TypeScript 的特性非常强大,我们利用好这些特性可以有效地提高代码质量、加速开发效率，今天就介绍 9 个非常实用的 TypeScript 技巧或者特性。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI5MjUxNjA4Mw==&mid=2247486891&idx=2&sn=90a069d25967dfcf8212fa8ab3b74883&scene=21#wechat_redirect" target="_blank" rel="noopener">移动端开发的兼容适配与性能优化干货分享</a></p>
+<p>本文是内部的一次分享沉淀，偏向基础但是涉及了一些有意思的细节，文笔有限，才疏学浅，文中若有不正之处，万望告知。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI0MzIyMDM5Ng==&mid=2649826916&idx=1&sn=f2c0b39cafde9bf73d0bc78052b0e16b&scene=21#wechat_redirect" target="_blank" rel="noopener">大厂面试过程复盘(微信/阿里/头条,附答案篇)</a></p>
+<p>本人前端，3年经验，由于个人的原因，决定跳槽，于是大概3月开始找工作，总历时大概2个月，面试了微信/阿里/头条，三家都拿到了offer，来分享一下面经。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651236559&idx=1&sn=63a1f3bc17e47f4c1fc96ba1a56ae49c&scene=21#wechat_redirect" target="_blank" rel="noopener">Node使用火焰图优化CPU爆涨</a></p>
+<p>话不多说，先上图，这是得到App静态资源更新服务的CPU使用率监控，可以看到7月2号到7月3号后，cpu使用率发生了爆涨，在八点的早高峰和下午六点的晚高峰，几乎可以把cpu打满。发现问题当机立断，升级配置将2核4g升级至4核8g，先保证服务稳定，我们再继续查问题。</p>
+<h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
