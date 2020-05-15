@@ -3,6 +3,7 @@ title: 函数式组件与类组件有何不同？
 date: 2020-05-10 20:46:16
 tags:
   - 转载
+  - React
 ---
 
 转载自：https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/
