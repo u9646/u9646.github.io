@@ -1,4 +1,4 @@
-https://www.hotlinkhub.com/understanding-react-key-prop/
+https://www.hotlinkhub.com/why-super-props/
 https://www.hotlinkhub.com/hotlink19/
 https://www.hotlinkhub.com/hotlink18/
 https://www.hotlinkhub.com/call-applay-bind/
