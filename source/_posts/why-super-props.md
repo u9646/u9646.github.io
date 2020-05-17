@@ -13,7 +13,7 @@ tags:
 这些梗对于使用 React 输出产品并不重要，但如果你想深入的了解它们的运作原理，它们会非常的有用。
 
 首先，在这一生中，`super(props)` 出现在我代码里的次数比我知道的还要多：
-```
+```javascript
 class Checkbox extends React.Component {
   constructor(props) {
     super(props);
@@ -22,17 +22,19 @@ class Checkbox extends React.Component {
   // ...
 }
 ```
+
 当然了，我们可以通过 `class fields proposal` 来省略这个声明：
-```
+```javascript
 class Checkbox extends React.Component {
   state = { isOn: true };
   // ...
 }
 ```
+
 早在 2015 年 React 0.13 已经计划支持 。在当时，声明 `constructor` 和调用 `super(props)` 一直被视作暂时的解决方案，直到有合适的类字段声明形式。
 
 但在此之前，我们先回到 ES2015 风格的代码：
-```
+```javascript
 class Checkbox extends React.Component {
   constructor(props) {
     super(props);
@@ -41,12 +43,13 @@ class Checkbox extends React.Component {
   // ...
 }
 ```
+
 为什么我们要调用 super，我们可以不这么做吗？那么在我们调用它时不传入 props，又会发生什么呢？会有其他的缺省参数吗？接来下我们就解开这一系列谜题。
 
 在 JavaScript 中，super 指的是父类（即超类）的构造函数。（在我们的例子中，它指向了 React.Component 的实现。）
 
 值得注意的是，在调用父类的构造函数之前，你是不能在 constructor 中使用 this 关键字的。JavaScript 不允许这个行为。
-```
+```javascript
 class Checkbox extends React.Component {
   constructor(props) {
     // 🔴  还不能使用 `this`
@@ -57,8 +60,9 @@ class Checkbox extends React.Component {
   // ...
 }
 ```
+
 JavaScript 有足够合理的动机来强制你在接触 this 之前执行父类构造函数。考虑考虑一些类层次结构的东西：
-```
+```javascript
 class Person {
   constructor(name) {
     this.name = name;
@@ -75,27 +79,30 @@ class PolitePerson extends Person {
   }
 }
 ```
+
 试想一下，在调用 super 之前使用 this 不被禁止的情况下，一个月后，我们可能在 `greetColleagues` 打印的消息中使用了 person 的 name 属性：
-```
+```javascript
 greetColleagues() {
   alert('Good morning folks!');
   alert('My name is ' + this.name + ', nice to meet you!');
 }
 ```
+
 但是我们并未想起 `this.greetColleagues` 在 super() 给 this.name 赋值前就已经执行。this.name 此时甚至尚未定义。可以看到，这样的代码难以往下推敲。
 
 为了避免落入这个陷阱，JavaScript 强制你在使用 this 之前先行调用 super。让父类来完成这件事情！：
-```
+```javascript
 constructor(props) {
   super(props);
   // ✅ 能使用 `this` 了
   this.state = { isOn: true };
 }
 ```
+
 这里留下了另一个问题：为什么要传入 props ？
 
 你或许会想到，为了让 React.Component 构造函数能够初始化 this.props，将 props 传入 super 是必须的：
-```
+```javascript
 // React 內部
 class Component {
   constructor(props) {
@@ -104,16 +111,18 @@ class Component {
   }
 }
 ```
+
 这几乎就是真相了 — 确然，它是 这样做 的。
 
 但有些扑朔迷离的是，即便你调用 super() 的时候没有传入 props，你依然能够在 render 函数或其他方法中访问到 this.props。（如果你质疑这个机制，尝试一下即可）
 
 那么这是怎么做到的呢？事实证明，React 在调用构造函数后也立即将 props 赋值到了实例上：**
-```
+```javascript
 // React 内部
 const instance = new YourComponent(props);
 instance.props = props;
 ```
+
 因此即便你忘记了将 props 传给 super()，React 也仍然会在之后将它定义到实例上。这么做是有原因的。
 
 当 React 增加了对类的支持时，不仅仅是为了服务于 ES6。其目标是尽可能广泛地支持类抽象。当时我们 不清楚 `ClojureScript，CoffeeScript，ES6，Fable，Scala.js，TypeScript` 等解決方案是如何成功的实践组件定义的。因而 React 刻意地没有显式要求调用 super() —— 即便 ES6 自身就包含这个机制。
@@ -121,7 +130,7 @@ instance.props = props;
 这意味着你能够用 super() 代替 super(props) 吗？
 
 最好不要，毕竟这样写在逻辑上并不明确确然，React 会在构造函数执行完毕之后给 this.props 赋值。但如此为之会使得 this.props 在 super 调用一直到构造函数结束期间值为 undefined。
-```
+```javascript
 // React 內部
 class Component {
   constructor(props) {
@@ -139,8 +148,9 @@ class Button extends React.Component {
   // ...
 }
 ```
+
 如果在构造函数中调用了其他的内部方法，那么一旦出错这会使得调试过程阻力更大。这就是我建议开发者一定执行 super(props) 的原因，即使理论上这并非必要：
-```
+```javascript
 class Button extends React.Component {
   constructor(props) {
     super(props); // ✅ 传入 props
@@ -150,6 +160,7 @@ class Button extends React.Component {
   // ...
 }
 ```
+
 确保了 this.props 在构造函数执行完毕之前已被赋值。
 
 最后，还有一点是 React 爱好者长期以来的好奇之处。

@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "hexo g && hexo d"
+    "build": "hexo g && hexo d",
+    "pub_git": "git add . && git commit -m 'feat: update post' && git push origin pages",
+    "pub": "yarn build && yarn pub_git"
   },
   "hexo": {
     "version": "4.2.0"
