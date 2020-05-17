@@ -1,3 +1,4 @@
+https://www.hotlinkhub.com/ts-interface-vs-type-aliases/
 https://www.hotlinkhub.com/fibnacci/
 https://www.hotlinkhub.com/why-super-props/
 https://www.hotlinkhub.com/hotlink19/
@@ -7,4 +8,3 @@ https://www.hotlinkhub.com/hotlink17/
 https://www.hotlinkhub.com/hotlink16/
 https://www.hotlinkhub.com/lru/
 https://www.hotlinkhub.com/hotlink15/
-https://www.hotlinkhub.com/react-fc-and-class-component-different/
