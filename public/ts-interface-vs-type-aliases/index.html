@@ -154,7 +154,7 @@
     </div>
     <div class="post-content ">
         <p><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases" target="_blank" rel="noopener">TypeScript interface vs type aliases</a></p>
-<p>在大多数情况下，interface和type别名并没有太大的区别。但是，它们有一些微妙的区别。</p>
+<p>在大多数情况下，interface和类型别名并没有太大的区别。但是，它们有一些微妙的区别。</p>
 <p>其中一个区别就是interface会创建一个新的类型名称，并且可以在任何地方使用。但是type没有，它只是一个引用，并没有创建一个新的类型实例。</p>
 <p>看下面这个例子，当我们鼠标hover到interfaced的时候，编辑器会提示当前函数返回一个Interface。而当我们hover到aliased的时候，返回的是一个{ num: number }对象。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">type Alias = &#123; <span class="attr">num</span>: number &#125;;</span><br><span class="line">interface Interface &#123;</span><br><span class="line">  num: number;</span><br><span class="line">&#125;</span><br><span class="line">declare <span class="function"><span class="keyword">function</span> <span class="title">aliased</span>(<span class="params">arg: Alias</span>): <span class="title">Alias</span>;</span></span><br><span class="line"><span class="function"><span class="title">declare</span> <span class="title">function</span> <span class="title">interfaced</span>(<span class="params">arg: Interface</span>): <span class="title">Interface</span>;</span></span><br></pre></td></tr></table></figure>

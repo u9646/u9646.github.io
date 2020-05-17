@@ -7,7 +7,7 @@ tags:
 
 [TypeScript interface vs type aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-aliases)
 
-在大多数情况下，interface和type别名并没有太大的区别。但是，它们有一些微妙的区别。
+在大多数情况下，interface和类型别名并没有太大的区别。但是，它们有一些微妙的区别。
 
 其中一个区别就是interface会创建一个新的类型名称，并且可以在任何地方使用。但是type没有，它只是一个引用，并没有创建一个新的类型实例。
 
