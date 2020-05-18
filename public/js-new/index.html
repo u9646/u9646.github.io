@@ -11,7 +11,7 @@
 
     <title>
         
-        llllll的博客 | HotLinkHub
+        模拟实现new运算符功能 - llllll的博客 | HotLinkHub
         
     </title>
 
@@ -66,7 +66,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -101,6 +101,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -125,174 +129,59 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-18</div>
-        <div class="post-info">
-            <a href="/js-new/">
-                <h3>
-                    模拟实现new运算符功能
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        模拟实现new运算符功能
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-17</div>
-        <div class="post-info">
-            <a href="/hotlink21/">
-                <h3>
-                    第21期 在TS中如何减少重复代码 &amp; 优秀网站必须关注的健康指标 &amp; 了不起的 Deno 入门教程
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-18 09:51:45</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-17</div>
-        <div class="post-info">
-            <a href="/js-inheritance/">
-                <h3>
-                    彻底弄清js继承的几种实现方式
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="post-content ">
+        <p>new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一</p>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Wechat</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'fedaily'</span></span><br><span class="line">&#125;</span><br><span class="line">Wechat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> wechat = <span class="keyword">new</span> Wechat()</span><br><span class="line"><span class="comment">// wechat.name === fedaily</span></span><br><span class="line"><span class="comment">// wechat.getName() === fedaily</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到，实例可以访问到构造函数的属性以及原型对象上的属性。</p>
+<p>所以我们可以模拟一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newFactory</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>(),</span><br><span class="line">  Constructor = [].shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">  obj.__proto__ = Constructor.prototype;</span><br><span class="line">  <span class="comment">// 处理构造函数有返回值的情况</span></span><br><span class="line">  <span class="comment">// 返回值如果是一个object则直接返回，否则返回obj</span></span><br><span class="line">  <span class="keyword">var</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">'object'</span> ? ret : obj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-17</div>
-        <div class="post-info">
-            <a href="/ts-interface-vs-type-aliases/">
-                <h3>
-                    interface 和 type aliases 区别
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#TypeScript" title="TypeScript">TypeScript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-17</div>
-        <div class="post-info">
-            <a href="/fibnacci/">
-                <h3>
-                    斐波那契数列
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#算法" title="算法">算法</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-16</div>
-        <div class="post-info">
-            <a href="/why-super-props/">
-                <h3>
-                    为什么我们要写 super(props) ？
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#转载" title="转载">转载</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#React" title="React">React</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-15</div>
-        <div class="post-info">
-            <a href="/hotlink19/">
-                <h3>
-                    第19期 彻底搞懂React源码调度原理（Concurrent模式）&amp; HTTP/3原理与实践
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-14</div>
-        <div class="post-info">
-            <a href="/hotlink18/">
-                <h3>
-                    第18期 手把手教你实现「京喜工厂」的CSS动画效果 &amp; 前端网红框架的插件机制axios、koa、redux、vuex
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -347,7 +236,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
@@ -357,5 +246,24 @@
 
 
 
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
 
 </html>
