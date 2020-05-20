@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第23期 10个案例让你彻底理解React hooks的渲染逻辑 &amp; 花椒前端TypeScript实践总结 &amp; Vue3.0来了，看看尤大大画的重点 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第23期 10个案例让你彻底理解React hooks的渲染逻辑 &amp; 花椒前端TypeScript实践总结 &amp; Vue3.0来了，看看尤大大画的重点
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-20 09:10:34</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://mp.weixin.qq.com/s/C8JXI4O3tMzg6_HvDtUQ4Q" target="_blank" rel="noopener">花椒前端TypeScript实践总结</a></p>
+<p>你是否经常在文章中见到 “你还没有用TypeScript么，都2020年了！” 这样的标语？今天我们就来探究一下TypeScript的优缺点。</p>
+<p><a href="https://mp.weixin.qq.com/s/NgpHG6W8ts99oTVy8MdTSg" target="_blank" rel="noopener">是什么尤大选择放弃Webpack？——vite 原理解析</a></p>
+<p>前两天尤大在Vue 3.0 beta直播中提到了一个vite的工具，其描述是：针对Vue单页面组件的无打包开发服务器，可以直接在浏览器运行请求的vue文件，对其原理比较感兴趣，因此体验并写下了本文，主要包括vite实现原理分析和一些思考。</p>
+<p><a href="https://mp.weixin.qq.com/s/zjuHn6uaWivtsLsK5Ima8A" target="_blank" rel="noopener">Vue3.0来了，看看尤大大画的重点</a></p>
+<p>众所周知，前端的技术一直更新的特别快，特别是框架这块。4月21号晚，Vue作者尤雨溪在B站直播分享了 Vue.js 3.0 Beta 最新进展，想必大家都有去观摩吧？那我们今天一起来回顾下尤大大的分享:</p>
+<p><a href="https://mp.weixin.qq.com/s/-Ao9DATp2B3Qgefbc1XN0g" target="_blank" rel="noopener">10个案例让你彻底理解React hooks的渲染逻辑</a></p>
+<p>正式开始，今天要写什么呢，原本我对react原理非常清楚，自己写过简单的react，带diff算法和异步更新队列的，但是对hooks源码一知半解，于是就要深究他的性能相关问题了   - 重复渲染的逻辑</p>
+<p><a href="https://mp.weixin.qq.com/s/1NRJlExm75V8NjhN6Ob7Gg" target="_blank" rel="noopener">Node.js AsyncHooks 与异步回调上下文</a></p>
+<p>我们都知道，Nodejs 最显著特点是单进程、异步、事件驱动。每当我们的代码碰到异步调用时，需要传入一个回调函数，等待异步调用结束时再被执行。一个典型的处理用户登录流程如下：</p>
+<p><a href="https://mp.weixin.qq.com/s/PUZ1TBbmd7BGt-UL-4gy8A" target="_blank" rel="noopener">从 0 开始发布一个无依赖、高质量的 npm 包</a></p>
+<p>没有发布过npm包的同学，可能会对NPM对开发有一种蜜汁敬畏，觉得这是一个很高大上的东西。甚至有次面试，面试官问我有没有发过npm包，当时只用过还没写过，我想应该挺难的，就小声说了没有，然后就让我回去了o(╯□╰)o。</p>
+<h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
