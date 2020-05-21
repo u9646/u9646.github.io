@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第13期 腾讯IMWEB团队《未来可期的TypeScript》&amp; 拼多多和酷家乐面试总结(已拿offer) - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第13期 腾讯IMWEB团队《未来可期的TypeScript》&amp; 拼多多和酷家乐面试总结(已拿offer)
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-08 09:46:09</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://mp.weixin.qq.com/s?__biz=MzA4Nzg0MDM5Nw==&mid=2247485046&idx=1&sn=1046b23d254bcdba9803e6c76b83ffe8&scene=21#wechat_redirect" target="_blank" rel="noopener">腾讯IMWEB团队《未来可期的TypeScript》</a></p>
+<p>文章讲述了自己从一名 TypeScript 抵制者转变为支持者的心路历程，以及 TypeScript 在在线教育团队中的实践经验，并对团队新项目是否该引入 TypeScript、如何快速搭建、以及现有项目如何向 TypeScript 迁移提供策略性建议与方案。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzU3MDAyNDgwNA==&mid=2247485705&idx=1&sn=72485cc83eb607ffeab3b2eb22b49805&scene=21#wechat_redirect" target="_blank" rel="noopener">微前端在小米 CRM 系统的实践</a></p>
+<p>大型组织的组织结构、软件架构在不断地发生变化。移动优先（Mobile First）、App中台（One App）、中台战略等，各种口号在不断的提出、修改和演进。同时，业务也在不断地发展，导致应用不断膨胀，进一步映射到软件架构上。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NzkwNDk3MQ==&mid=2650591715&idx=1&sn=aa8e6d5ed7bba8f4c3af67b889b54a91&scene=21#wechat_redirect" target="_blank" rel="noopener">前端性能优化之谈谈常见的性能指标及上报策略</a></p>
+<p>性能优化是所有前端人的追求，在这条路上，方法多种多样。这篇文章，说一下可以怎样定义性能指标及上报。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247485303&idx=1&sn=c003da72428fcd020af03ea37a586490&scene=21#wechat_redirect" target="_blank" rel="noopener">拼多多和酷家乐面试总结(已拿offer)</a></p>
+<p>我目前面了五家公司：滴滴、蚂蚁、拼多多、酷家乐、字节跳动，拼多多和酷家乐基本已拿到 offer，蚂蚁二面完了，滴滴和字节即将三面，我先把我已经面过的面经先总结出来，其他的不管过没过，这周内我都会总结出来，希望能给到正在找工作同学的帮助。</p>
+<h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>

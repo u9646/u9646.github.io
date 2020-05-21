@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第10期 Nginx 从入门到实践，万字详解 &amp; JavaScript ES2020必知必会新特性 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第10期 Nginx 从入门到实践，万字详解 &amp; JavaScript ES2020必知必会新特性
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-01 20:20:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5><p><a href="https://mp.weixin.qq.com/s?__biz=MzI5NjIzNjA1Nw==&mid=2247484186&idx=1&sn=f81d7a5e27422dfd253483ff29174bdb&scene=21#wechat_redirect" target="_blank" rel="noopener">2020前端性能优化清单（五）</a><br>一份全面的性能优化指南</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI5NjIzNjA1Nw==&mid=2247484187&idx=1&sn=f647d770ed17df9f29e7b2859b980250&scene=21#wechat_redirect" target="_blank" rel="noopener">2020前端性能优化清单（六）</a><br>一份全面的性能优化指南</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg5ODA5MzQ2Mw==&mid=2247484653&idx=1&sn=3d384389337950a9f2391f2464bc4d9c&scene=21#wechat_redirect" target="_blank" rel="noopener">Nginx 从入门到实践，万字详解！</a><br>最近越来越频繁地遇到需要配置反向代理的场景，在自己搭建博客的时候，也不可避免要用到 Nginx，所以这段时间集中学习了一下 Nginx，同时做了一些笔记，希望也可以帮助到大家～ 😜</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI0MzIyMDM5Ng==&mid=2649826819&idx=1&sn=825a07b6372143b353dcc3fb2208ac1e&scene=21#wechat_redirect" target="_blank" rel="noopener">前端性能优化之谈谈常见的性能指标及上报策略</a><br>性能优化是所有前端人的追求，在这条路上，方法多种多样。这篇文章，说一下可以怎样定义性能指标及上报。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NzkwNDk3MQ==&mid=2650591668&idx=1&sn=e67882ac4055e531ba0ee5cb67670b4b&scene=21#wechat_redirect" target="_blank" rel="noopener">JavaScript ES2020必知必会新特性</a><br>来看点新鲜的</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI5NDY1MTk3Mg==&mid=2247485571&idx=1&sn=f07a0ee70b0e5eb67886ffc2074380b3&scene=21#wechat_redirect" target="_blank" rel="noopener">第三题：无重复字符的最长子串 【leetcode】</a><br>有面试的小伙伴可以速览一波哟</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>

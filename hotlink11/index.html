@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第11期 小白必看，JSBridge 初探 &amp; 通俗易懂的红黑树图解(上) &amp; WebGL工作流程解读，一个三角形的诞生 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端收藏家（微信号-fedaily）"><span class="toc-text">前端收藏家（微信号: fedaily）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第11期 小白必看，JSBridge 初探 &amp; 通俗易懂的红黑树图解(上) &amp; WebGL工作流程解读，一个三角形的诞生
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-06 09:52:01</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://mp.weixin.qq.com/s?__biz=MzI0NTE5NzYyMw==&mid=2247484005&idx=1&sn=43b97435aa13b4427c82bf87a9165c05&scene=21#wechat_redirect" target="_blank" rel="noopener">小白必看，JSBridge 初探</a></p>
+<p>近些年，移动端普及化越来越高，开发过程中选用 Native 还是 H5 一直是热门话题。Native 和 H5 都有着各自的优缺点，为了满足业务的需要，公司实际项目的开发过程中往往会融合两者进行 Hybrid 开发。Native 和 H5 分处两地，看起来无法联系，那么如何才能让双方协同实现功能呢？</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI0NTE5NzYyMw==&mid=2247483899&idx=1&sn=fb11e2854e11c04763a8e26a9f53d241&scene=21#wechat_redirect" target="_blank" rel="noopener">通俗易懂的红黑树图解(上)</a></p>
+<p>红黑树本质上是一颗二叉查找树，它是在二叉查找树的基础上给节点增加红黑颜色属性以及五条约束的性质。所以学习红黑树之前，需要先了解一下二叉查找树的知识；红黑树与二叉查找树的查找操作是一模一样的，所以掌握了二叉查找树之后，学习红黑树就只剩下增加及删除节点了（注意：红黑树没有更新节点操作）。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI0NTE5NzYyMw==&mid=2247484052&idx=1&sn=93842fa46cfe1b0cc86f554caff06d0b&scene=21#wechat_redirect" target="_blank" rel="noopener">webpack-dev-middleware 源码解读</a></p>
+<p>Webpack 的使用目前已经是前端开发工程师必备技能之一。若是想在本地环境启动一个开发服务，大家只需在 Webpack 的配置中，增加 devServer(<a href="https://www.webpackjs.com/configuration/dev-server/" target="_blank" rel="noopener">https://www.webpackjs.com/configuration/dev-server/</a>) 的配置来启动。devServer 配置的本质是 webpack-dev-server 这个包提供的功能，而 webpack-dev-middleware 则是这个包的底层依赖。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI0NTE5NzYyMw==&mid=2247484065&idx=1&sn=bdcd7acb8d3ff150764e5106bc795df2&scene=21#wechat_redirect" target="_blank" rel="noopener">五分钟看懂 Nginx 负载均衡</a></p>
+<p>对于电商平台而言，随着业务的不断发展壮大，网站访问量和数据量也随之急剧增长，该情况的产生给服务器带来了一定的负担。从用户体验层面而言，由于服务器端数据处理带来的时延，往往导致页面的响应速度过慢、操作流畅性受阻等问题。这在某种程度上甚至会潜在影响平台的成交量。提供高效率，高质量的服务成为亟待解决的问题。负载均衡策略的出现和发展成为缓解上述问题的有效途径。本文将带你了解基于 Nginx 实现的负载均衡。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NzkwNDk3MQ==&mid=2650591397&idx=1&sn=118faca487e657e8c946a69fe1decc47&scene=21#wechat_redirect" target="_blank" rel="noopener">一篇搞定移动端适配</a></p>
+<p>手机市场日渐丰富的同时，给我们前端开发人员带来的 “网页内容自适应屏幕尺寸进行显示的问题” 也日渐凸显出来，接下来我们就要细说移动端适配的前世今生及方案。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA5NzkwNDk3MQ==&mid=2650591583&idx=1&sn=2b8e38bf31fbdbc3956e170d56676b80&scene=21#wechat_redirect" target="_blank" rel="noopener">WebGL工作流程解读，一个三角形的诞生</a></p>
+<p>本文会把WebGL工作的具体流程梳理一遍，WebGL到底是如何渲染出一个三角形的。我们常说把大象装进冰箱需要三步，那么写一个WebGL程序应该也只需要三步：1、把数据放入缓冲区，2、把缓冲区的数据给着色器，3、着色器把数据给GPU。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247485264&idx=2&sn=6e6d0911649f3e24141be25fca19cb2b&scene=21#wechat_redirect" target="_blank" rel="noopener">当浏览器全面禁用三方 Cookie</a></p>
+<p>苹果公司前不久对 Safari 浏览器进行一次重大更新，这次更新完全禁用了第三方  Cookie，这意味着，默认情况下，各大广告商或网站将无法对你的个人隐私进行追踪。而微软和 Mozilla 等也纷纷采取了措施禁用第三方 Cookie，但是由于这些浏览器市场份额较小，并没有给市场带来巨大的冲击。</p>
+<h3 id="前端收藏家（微信号-fedaily）"><a href="#前端收藏家（微信号-fedaily）" class="headerlink" title="前端收藏家（微信号: fedaily）"></a>前端收藏家（微信号: fedaily）</h3><h5 id="收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="收集全网优秀前端技术资讯，与你分享，共同成长。"></a>收集全网优秀前端技术资讯，与你分享，共同成长。</h5>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
