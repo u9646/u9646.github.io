@@ -32,26 +32,8 @@ const o3 = Object.assign({}, o1, o2)
 ```
 
 #### 实现koa的compose方法
-可以直接看下源码，只有不到50行[koa-compose](https://github.com/koajs/compose/blob/master/index.js)
 
-function compose (middleware) {
-  return function (context, next) {
-    let index = -1
-    return dispatch(0)
-    function dispatch (i) {
-      if (i <= index) return Promise.reject(new Error('next() called multiple times'))
-      index = i
-      let fn = middleware[i]
-      if (i === middleware.length) fn = next
-      if (!fn) return Promise.resolve()
-      try {
-        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));
-      } catch (err) {
-        return Promise.reject(err)
-      }
-    }
-  }
-}
+[koa-compose源码解读](https://juejin.im/post/5ec8f9a2518825430f54b6c7)
 
 #### 实现js new操作符效果
 [js new 操作符实际发生了什么](https://juejin.im/post/5ec8e337518825430044946e)
