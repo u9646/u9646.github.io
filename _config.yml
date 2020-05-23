@@ -129,7 +129,7 @@ sitemap:
   rel: false
 
 baidu_url_submit:
-  count: 10
+  count: 1000
   host: https://www.hotlinkhub.com
   token: 95FKrtFR74NuNqQL
   path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
