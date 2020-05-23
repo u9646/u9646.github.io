@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        3年前端面试总结 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#javascript基础"><span class="toc-text">javascript基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#合并两个数组"><span class="toc-text">合并两个数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#合并两个对象"><span class="toc-text">合并两个对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现koa的compose方法"><span class="toc-text">实现koa的compose方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现js-new操作符效果"><span class="toc-text">实现js new操作符效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js继承的几种实现方式"><span class="toc-text">js继承的几种实现方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟实现call-apply-bind"><span class="toc-text">模拟实现call, apply bind</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js实现一个debounce防抖函数"><span class="toc-text">js实现一个debounce防抖函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js实现一个throttle节流函数"><span class="toc-text">js实现一个throttle节流函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typescript"><span class="toc-text">typescript</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#interface-和-type-的区别"><span class="toc-text">interface 和 type 的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css"><span class="toc-text">css</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#flex-0-1-auto表示什么意思"><span class="toc-text">flex 0 1 auto表示什么意思</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法"><span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#求字符串数组的最长公共前缀"><span class="toc-text">求字符串数组的最长公共前缀</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        3年前端面试总结
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 10:34:56</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#面试" title="面试">面试</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <blockquote>
+<p>持续更新中…</p>
+</blockquote>
+<h3 id="javascript基础"><a href="#javascript基础" class="headerlink" title="javascript基础"></a>javascript基础</h3><h4 id="合并两个数组"><a href="#合并两个数组" class="headerlink" title="合并两个数组"></a>合并两个数组</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法1: 使用concat, concat返回一个新数组，同时并不修改原数组</span></span><br><span class="line"><span class="keyword">const</span> a1 = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">const</span> a2 = [<span class="number">2</span>]</span><br><span class="line"><span class="keyword">const</span> a3 = a1.concat(a2) <span class="comment">// [1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法2: 使用扩展运算法</span></span><br><span class="line"><span class="keyword">const</span> a4 = [...a1, ...a2] <span class="comment">// [1,2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他方法: for循环遍历</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="合并两个对象"><a href="#合并两个对象" class="headerlink" title="合并两个对象"></a>合并两个对象</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法1: Object.assign</span></span><br><span class="line"><span class="comment">// ⚠️该方法只复制值，如果对象属性值是一个引用类型，那么就会复制引用地址，也就是说会存在引用共享的问题</span></span><br><span class="line"><span class="keyword">const</span> o1 = &#123; name: <span class="string">'fedaily'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o2 = &#123; topic: <span class="string">'fe'</span> &#125;</span><br><span class="line"><span class="keyword">const</span> o3 = <span class="built_in">Object</span>.assign(&#123;&#125;, o1, o2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="实现koa的compose方法"><a href="#实现koa的compose方法" class="headerlink" title="实现koa的compose方法"></a>实现koa的compose方法</h4><p>可以直接看下源码，只有不到50行<a href="https://github.com/koajs/compose/blob/master/index.js" target="_blank" rel="noopener">koa-compose</a></p>
+<p>function compose (middleware) {<br>  return function (context, next) {<br>    let index = -1<br>    return dispatch(0)<br>    function dispatch (i) {<br>      if (i &lt;= index) return Promise.reject(new Error(‘next() called multiple times’))<br>      index = i<br>      let fn = middleware[i]<br>      if (i === middleware.length) fn = next<br>      if (!fn) return Promise.resolve()<br>      try {<br>        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));<br>      } catch (err) {<br>        return Promise.reject(err)<br>      }<br>    }<br>  }<br>}</p>
+<h4 id="实现js-new操作符效果"><a href="#实现js-new操作符效果" class="headerlink" title="实现js new操作符效果"></a>实现js new操作符效果</h4><p><a href="https://juejin.im/post/5ec8e337518825430044946e" target="_blank" rel="noopener">js new 操作符实际发生了什么</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newFactory</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  Constructor = [].shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">  obj.__proto__ = Constructor.prototype;</span><br><span class="line">  <span class="comment">// 处理构造函数有返回值的情况</span></span><br><span class="line">  <span class="comment">// 返回值如果是一个object则直接返回，否则返回obj</span></span><br><span class="line">  <span class="keyword">var</span> ret = Constructor.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">'object'</span> ? ret : obj;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="js继承的几种实现方式"><a href="#js继承的几种实现方式" class="headerlink" title="js继承的几种实现方式"></a>js继承的几种实现方式</h4><p><a href="https://juejin.im/post/5ec114095188256d545febbf" target="_blank" rel="noopener">彻底弄清js继承的几种实现方式</a></p>
+<h4 id="模拟实现call-apply-bind"><a href="#模拟实现call-apply-bind" class="headerlink" title="模拟实现call, apply bind"></a>模拟实现call, apply bind</h4><p><a href="https://juejin.im/post/5ebbde296fb9a0433769777a" target="_blank" rel="noopener">如何模拟实现一个call、apply、bind函数</a></p>
+<h4 id="js实现一个debounce防抖函数"><a href="#js实现一个debounce防抖函数" class="headerlink" title="js实现一个debounce防抖函数"></a>js实现一个debounce防抖函数</h4><p><a href="https://juejin.im/post/5ec8eff4f265da76b4047da4" target="_blank" rel="noopener">js 实现一个debounce防抖函数</a></p>
+<h4 id="js实现一个throttle节流函数"><a href="#js实现一个throttle节流函数" class="headerlink" title="js实现一个throttle节流函数"></a>js实现一个throttle节流函数</h4><p><a href="https://juejin.im/post/5ec8f771f265da770a6156d1" target="_blank" rel="noopener">js 实现一个throttle节流函数</a></p>
+<h3 id="typescript"><a href="#typescript" class="headerlink" title="typescript"></a>typescript</h3><h4 id="interface-和-type-的区别"><a href="#interface-和-type-的区别" class="headerlink" title="interface 和 type 的区别"></a>interface 和 type 的区别</h4><ul>
+<li>interface会创建一个新的类型名称，可以在任何地方使用。但是type只是一个引用。</li>
+<li>interface支持extends和implements，但是type不支持，不过可以通过交叉类型实现类似extends效果。</li>
+<li>尽量使用interface代替type，不过如果遇到需要使用联合类型或者元组的时候，我们还是使用type。</li>
+</ul>
+<p><a href="https://juejin.im/post/5ec0ff23f265da7bed6b3c85" target="_blank" rel="noopener">https://juejin.im/post/5ec0ff23f265da7bed6b3c85</a> 这里有更详细的解释</p>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><h4 id="flex-0-1-auto表示什么意思"><a href="#flex-0-1-auto表示什么意思" class="headerlink" title="flex 0 1 auto表示什么意思"></a>flex 0 1 auto表示什么意思</h4><p>是flex-grow(定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大), flex-shrink(定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。), flex-basis(定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小)</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><h4 id="求字符串数组的最长公共前缀"><a href="#求字符串数组的最长公共前缀" class="headerlink" title="求字符串数组的最长公共前缀"></a>求字符串数组的最长公共前缀</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">var longestCommonPrefix = <span class="keyword">function</span>(strs) &#123;</span><br><span class="line">    <span class="keyword">if</span> (strs === null || strs.length === <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.length === <span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">let</span><span class="built_in"> min</span> = <span class="number">0</span>,<span class="built_in"> max</span> = <span class="number">0</span></span><br><span class="line">    // ⚠️精髓在这里</span><br><span class="line">    // 仔细看，我们并不是比较数组中某一个字符串的长度，而是大小，<span class="string">'s'</span> &gt; <span class="string">'a'</span> 直接这样比较的</span><br><span class="line">    // 这种比较其实比较的就是字符串每个字符的charCode</span><br><span class="line">    // 比如<span class="string">'s'</span>.charCodeAt()是<span class="number">115</span>，而<span class="string">'a'</span>是<span class="number">97</span>，所以<span class="string">'s'</span> &gt; <span class="string">'a'</span> 返<span class="built_in">回true</span></span><br><span class="line">    // 这里其实是筛选字符串公共前缀最长和最短的元素</span><br><span class="line">    // 以[<span class="string">"flower"</span>,<span class="string">"flow"</span>,<span class="string">"flight"</span>]为例，公共前缀都是<span class="string">'fl'</span></span><br><span class="line">    // 其实最长和最短随便是那个都没有关系，我们根据charCode算出最长或者最短即可</span><br><span class="line">    // 我们再看，以[<span class="string">"flower"</span>,<span class="string">"flow"</span>,<span class="string">"slight"</span>]为例，公共前缀都是<span class="string">''</span></span><br><span class="line">    // <span class="keyword">for</span>循环结束后，strs<span class="built_in">[max</span>]其实是<span class="string">'slight'</span>，因为s比f的charCode大，所以<span class="string">'slight'</span>就比f开头的所有字符串大</span><br><span class="line">    // strs<span class="built_in">[min</span>]其实就是<span class="string">'flow'</span>，因为<span class="string">'flower'</span>比它多了e。</span><br><span class="line">    // 知道strs<span class="built_in">[min</span>] strs<span class="built_in">[max</span>]之后，<span class="built_in">以min</span>为模板，去比较<span class="built_in">和max</span>有多少重复的就可以了</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; strlength; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs<span class="built_in">[min</span>] &gt; strs[i])<span class="built_in"> min</span> = i</span><br><span class="line">        <span class="keyword">if</span>(strs<span class="built_in">[max</span>] &lt; strs[i])<span class="built_in"> max</span> = i</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; strs<span class="built_in">[min</span>].length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(strs<span class="built_in">[min</span>].charAt(j) !== strs<span class="built_in">[max</span>].charAt(j)) &#123;</span><br><span class="line">            <span class="keyword">return</span> strs<span class="built_in">[min</span>]<span class="built_in">.substring</span>(<span class="number">0</span>, j)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strs<span class="built_in">[min</span>]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
