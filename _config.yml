@@ -139,5 +139,5 @@ baidu_url_submit:
 deploy:
   - type: git
     repo: https://github.com/u9646/u9646.github.io.git
-    branch: master
+    branch: pages
   - type: baidu_url_submitter
