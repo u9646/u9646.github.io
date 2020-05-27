@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        如何快速将你的SPA应用改造成PWA应用 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-App-Manifest"><span class="toc-text">Web App Manifest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Service-Worker"><span class="toc-text">Service Worker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发中遇到的问题"><span class="toc-text">开发中遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安卓的chrome没有弹添加到桌面的弹窗"><span class="toc-text">安卓的chrome没有弹添加到桌面的弹窗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安卓添加到桌面过程很慢"><span class="toc-text">安卓添加到桌面过程很慢</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何判断是否从主屏幕访问"><span class="toc-text">如何判断是否从主屏幕访问</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何监听添加到桌面事件"><span class="toc-text">如何监听添加到桌面事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#添加到主屏幕失败"><span class="toc-text">添加到主屏幕失败</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何捕捉安装成功动作"><span class="toc-text">如何捕捉安装成功动作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何注销sw"><span class="toc-text">如何注销sw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何降级"><span class="toc-text">如何降级</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        如何快速将你的SPA应用改造成PWA应用
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-26 21:05:56</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#pwa" title="pwa">pwa</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>PWA是指渐进式web应用，一般由web app manifest, service worker, app shell, notification push等部分组成。</p>
+<p>这里目前只讨论web app manifest, service worker两部分如何应用到项目中。</p>
+<p>web app manifest可以使应用变成可安装式的。可以通过浏览器将应用添加到桌面上，从而可以从桌面上直接访问，同时可以定义桌面图标、应用名称、系统状态栏颜色，通过这些，我们可以让我们的应用像一个原生APP一样。从而给用户更好的体验。</p>
+<p>从产品的角度来看，用户从桌面图标访问我们的应用肯定比通过浏览器去访问便捷的更多，同时还可以让用户访问的时候隐藏浏览器本身的一些控件，比如导航栏、底部设置等控件。而实现这一切只需要很小的代价。这一切只需要添加一个manifest.json文件即可。</p>
+<p>⚠️注意：在你开始跃跃欲试之前，请先确认你的应用是否全站https。如果不是，那么最好等你的应用全站https后再来尝试。</p>
+<h4 id="Web-App-Manifest"><a href="#Web-App-Manifest" class="headerlink" title="Web App Manifest"></a>Web App Manifest</h4><p>我们看下manifest.json文件是什么样的：</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest" target="_blank" rel="noopener">Web App Manifest 文档</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"前端收藏家"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"fedaily"</span>,</span><br><span class="line">  <span class="attr">"orientation"</span>: <span class="string">"portrait"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span>,</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"/"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">"只收藏好的，只推荐好的"</span>,</span><br><span class="line">  <span class="attr">"background_color"</span>: <span class="string">"#000"</span>,</span><br><span class="line">  <span class="attr">"theme_color"</span>: <span class="string">"#000"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"icon.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"96x96"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// ... 可以添加多种尺寸的图标</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>针对iOS平台，我们需要使用标签的形式添加：</p>
+<p><a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank" rel="noopener">iOS application 官方文档</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attr">href</span>=<span class="string">"icon.png"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-title"</span> <span class="attr">content</span>=<span class="string">"前端收藏家"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attr">content</span>=<span class="string">"black"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"theme-color"</span> <span class="attr">content</span>=<span class="string">"#000000"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后在你的html中引入这个json文件即可。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>⚠️注意，这里需要放在项目根目录下，否则会导致安卓不能自动弹出添加到桌面的提示（你可能会问，那iOS会有这个问题吗，没有，iOS根本就不支持这个特性）。</p>
+<p>当你做好这些，一个可以安装到桌面的应用就诞生了。</p>
+<p>你可以用Android的chrome浏览器访问你的应用，然后通过设置-添加到桌面功能，就可以将你的应用添加到桌面了。<br>你可以用iOS的safari浏览器访问你的应用，然后通过底部的分享按钮-添加到主屏幕，就可以将你的应用添加到桌面了。</p>
+<h4 id="Service-Worker"><a href="#Service-Worker" class="headerlink" title="Service Worker"></a>Service Worker</h4><p>Service worker是一个注册在指定源和路径下的事件驱动worker。它采用JavaScript控制关联的页面或者网站，拦截并修改访问和资源请求，细粒度地缓存资源。你可以完全控制应用在特定情形（最常见的情形是网络不可用）下的表现。</p>
+<p>Service worker运行在worker上下文，因此它不能访问DOM。相对于驱动应用的主JavaScript线程，它运行在其他线程中，所以不会造成阻塞。它设计为完全异步，同步API（如XHR和localStorage）不能在service worker中使用。</p>
+<p>出于安全考量，Service workers只能由HTTPS承载，毕竟修改网络请求的能力暴露给中间人攻击会非常危险。在Firefox浏览器的用户隐私模式，Service Worker不可用。</p>
+<p>service worker具体的API以及详细介绍，大家可以在网上搜相关的资料，都说的很详细，这里介绍一个非常便捷的方法。</p>
+<p><a href="https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin" target="_blank" rel="noopener">workbox webpack plugin</a>可以和webpack集成，只需要很少的配置，就可以实现大部分我们需要的功能。</p>
+<p>我们看下如何使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> GenerateSW(&#123;</span><br><span class="line">  swDest: <span class="string">'sw.js'</span>,</span><br><span class="line">  skipWaiting: <span class="literal">true</span>,</span><br><span class="line">  clientsClaim: <span class="literal">true</span>,</span><br><span class="line">  cleanupOutdatedCaches: <span class="literal">true</span>,</span><br><span class="line">  inlineWorkboxRuntime: <span class="literal">true</span>,</span><br><span class="line">  runtimeCaching: [&#123;</span><br><span class="line">    handler: <span class="string">'NetworkFirst'</span>,</span><br><span class="line">    urlPattern: <span class="regexp">/\/api/</span>,</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这个插件会读取webpack本身构建出来的静态资源文件，比如.js, .css, .png等资源，将其添加到缓存列表中，所以不需要在这里再指定了。</p>
+<p>通过runtimeCaching，我们可以缓存比如api的返回值，这里⚠️建议慎重考虑，如果你不是特别在意应用在断网情况下的体验（作为一个web应用，大多数情况下，断网基本啥都干不了，所以尽量不要缓存api数据，缓存静态资源即可，缓存策略不合适的话，可能会导致一些意想不到的BUG🐛）</p>
+<p>这个插件会根据你的配置自动生成service worker文件，是不是很简单，然后你需要做的就是去你的html里面注册servie worker就可以了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">if</span> (<span class="string">'serviceWorker'</span> <span class="keyword">in</span> navigator) &#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, () =&gt; &#123;</span></span><br><span class="line"><span class="javascript">      navigator.serviceWorker.register(<span class="string">`/sw.js?<span class="subst">$&#123;<span class="built_in">Date</span>.now()&#125;</span>`</span>).then(<span class="function"><span class="params">registration</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'SW registered: '</span>, registration)</span></span><br><span class="line"><span class="javascript">      &#125;).catch(<span class="function"><span class="params">registrationError</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'SW registration failed: '</span>, registrationError)</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>⚠️注意：sw.js文件和manifest.json一样，也需要放在项目根目录下的。</p>
+<p>到这里，其实我们就有一个基本的可以使用的pwa化的应用了。</p>
+<p>如果你还需要一些定制化的需求可以详细阅读workbox文档去实现。</p>
+<h3 id="开发中遇到的问题"><a href="#开发中遇到的问题" class="headerlink" title="开发中遇到的问题"></a>开发中遇到的问题</h3><h4 id="安卓的chrome没有弹添加到桌面的弹窗"><a href="#安卓的chrome没有弹添加到桌面的弹窗" class="headerlink" title="安卓的chrome没有弹添加到桌面的弹窗"></a>安卓的chrome没有弹添加到桌面的弹窗</h4><p>检查你的manifest.json, sw.js文件是否在项目根目录下。以及sw是否注册成功。</p>
+<h4 id="安卓添加到桌面过程很慢"><a href="#安卓添加到桌面过程很慢" class="headerlink" title="安卓添加到桌面过程很慢"></a>安卓添加到桌面过程很慢</h4><p>暂时还没有找到好的解决方案</p>
+<h4 id="如何判断是否从主屏幕访问"><a href="#如何判断是否从主屏幕访问" class="headerlink" title="如何判断是否从主屏幕访问"></a>如何判断是否从主屏幕访问</h4><p>因为埋点等需求，我们需要区分用户是从浏览器访问的还是从主屏幕访问的，可以这样判断：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> const isFromDesktop = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="regexp">//</span> <span class="built_in">window</span>.navigator.standalone used <span class="keyword">for</span> safari</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.navigator.standalone) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.matchMedia &amp;&amp; <span class="built_in">window</span>.matchMedia(<span class="string">'(display-mode: standalone)'</span>).matches) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="如何监听添加到桌面事件"><a href="#如何监听添加到桌面事件" class="headerlink" title="如何监听添加到桌面事件"></a>如何监听添加到桌面事件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> deferredPrompt</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'beforeinstallprompt'</span>, event =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'install event trigger'</span>, event);</span><br><span class="line">  <span class="comment">// 禁止浏览器自动显示添加到桌面提示框</span></span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="comment">// 存储事件对象，方便后面自定义弹窗时机</span></span><br><span class="line">  deferredPrompt = e;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 然后可以显示一个自定义的提示框给用户，告诉用户</span></span><br><span class="line">  <span class="comment">// 可以将应用添加到桌面，同时可以告知如何操作</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 再监听自定义提示框的按钮点击事件</span></span><br><span class="line">buttonInstall.addEventListener(<span class="string">'click'</span>, (e) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 隐藏我们自定义的弹窗</span></span><br><span class="line">  hideMyInstallPromotion();</span><br><span class="line">  <span class="comment">// 显示添加到桌面提示框（浏览器提供的）</span></span><br><span class="line">  deferredPrompt.prompt();</span><br><span class="line">  <span class="comment">// 这里可以获取到用户的选择，同时做一些埋点相关操作</span></span><br><span class="line">  deferredPrompt.userChoice.then(<span class="function">(<span class="params">choiceResult</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (choiceResult.outcome === <span class="string">'accepted'</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'用户接受'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'用户拒绝'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加到主屏幕失败"><a href="#添加到主屏幕失败" class="headerlink" title="添加到主屏幕失败"></a>添加到主屏幕失败</h4><p>安卓浏览器添加到主屏幕权限可能没打开，如果没打开，也不会有添加到主屏幕那个提示框的，需要开启权限再次尝试（所以一个自定义的提示框还是很重要的，可以告知用户如何处理失败的情况，经过测试，因为权限导致的失败并没有什么提示给到用户）</p>
+<h4 id="如何捕捉安装成功动作"><a href="#如何捕捉安装成功动作" class="headerlink" title="如何捕捉安装成功动作"></a>如何捕捉安装成功动作</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'appinstalled'</span>, (evt) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'app installed'</span>, evt);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="如何注销sw"><a href="#如何注销sw" class="headerlink" title="如何注销sw"></a>如何注销sw</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// registrations 是注册成功回掉的参数</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> registration <span class="keyword">of</span> registrations) &#123;</span><br><span class="line">  registration.unregister()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="如何降级"><a href="#如何降级" class="headerlink" title="如何降级"></a>如何降级</h4><p>建议配置一个接口，根据接口决定是否执行sw注册的流程，否则将已有的sw注销掉。这样可以很方便的处理线上问题。比如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'/api/sw/'</span>).then(<span class="function"><span class="params">result</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (result) &#123;</span><br><span class="line">    <span class="comment">// 注册操作</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 注销操作</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>写到这里，好像实际开发过程中问题还是挺多的，不过综合来看，PWA还是非常值得尝试的。毕竟体验大不同呀。</p>
+<p>后面遇到其他问题再更新，也欢迎大家积极留言交流。。。</p>
+<p><strong>公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。</strong></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
