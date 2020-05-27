@@ -11,7 +11,7 @@
 
     <title>
         
-        第25期 深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系 &amp; 精读《@umijs/use-request》源码 - llllll的博客 | HotLinkHub
+        第26期 详解React 16的Diff策略 &amp; 深入分析Session和Cookie &amp; 图解ChunkSplitPlugin - llllll的博客 | HotLinkHub
         
     </title>
 
@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#公众号-前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -133,11 +133,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        第25期 深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系 &amp; 精读《@umijs/use-request》源码
+        第26期 详解React 16的Diff策略 &amp; 深入分析Session和Cookie &amp; 图解ChunkSplitPlugin
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-05-23 09:40:59</span></span>
+        <span class="attr">发布于：<span>2020-05-24 20:58:14</span></span>
         
         <span class="attr">标签：/
         
@@ -153,24 +153,23 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a href="https://mp.weixin.qq.com/s/QAuTBQUAc3K9ru1mPtCPbA" target="_blank" rel="noopener">为什么你的网页需要 CSP?</a></p>
-<p>CSP 的主要好处就是可以全面禁止使用不安全的嵌入式 JavaScript。内联 JavaScript（无论是反射的还是存储的），意味着不正确的转义用户输入都可以被 Web 浏览器解释为 JavaScript 代码。通过使用 CSP 禁用嵌入式 JavaScript，你可以有效消除针对你站点的几乎所有 XSS 攻击。</p>
-<p><a href="https://mp.weixin.qq.com/s/7Q_CTnOkXGH_8QCDhmvh1A" target="_blank" rel="noopener">Lighthouse 6.0 新功能</a></p>
-<p>5月19日，Lighthouse 发布了 6.0 版本，带来了非常多的新特性，让我们一起来了解一下吧！</p>
-<p><a href="https://mp.weixin.qq.com/s/ZbIiwSTurQXw6qu2rJwkJA" target="_blank" rel="noopener">精读《@umijs/use-request》源码</a></p>
-<p>与组件生命周期绑定的 Utils 非常适合基于 React Hooks 来做，比如可以将 “发请求” 这个功能与组件生命周期绑定，实现一些便捷的功能。</p>
-<p>这次以 @umijs/use-request 为例子，分析其功能思路与源码。</p>
-<p><a href="https://mp.weixin.qq.com/s/Bh-nveCyLqkEDGQXri-8fg" target="_blank" rel="noopener">深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系</a></p>
-<p>关于 Event Loop 的文章很多，但是有很多只是在讲「宏任务」、「微任务」，我先提出几个问题：</p>
-<ul>
-<li>每一轮 Event Loop 都会伴随着渲染吗？</li>
-<li>requestAnimationFrame 在哪个阶段执行，在渲染前还是后？在 microTask 的前还是后？</li>
-<li>requestIdleCallback 在哪个阶段执行？如何去执行？在渲染前还是后？在 microTask 的前还是后？</li>
-<li>resize、scroll 这些事件是何时去派发的。</li>
-</ul>
-<p><a href="https://mp.weixin.qq.com/s/uJeRnCOqsg1QVXbZwYzWAw" target="_blank" rel="noopener">node_modules 困境</a></p>
-<p>Ryan 对于 node.js 的十大遗憾之一就是支持了 node_modules，node_modules 的设计虽然能满足大部分的场景，但是其仍然存在着种种缺陷，尤其在前端工程化领域，造成了不少的问题，本文总结下其存在的一些问题，和可能的改进方式。</p>
-<h3 id="公众号-前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#公众号-前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。"></a>公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。</h3>
+        <p><a href="https://mp.weixin.qq.com/s/q83qhK9IfeQmvwjmXOkVyA" target="_blank" rel="noopener">深入分析Session和Cookie</a></p>
+<p>在Web发展史中，我们知道浏览器与服务器间采用的是 http协议，而这种协议是无状态的，所以这就导致了服务器无法知道是谁在浏览网页，但很明显，一些网页需要知道用户的状态，例如登陆，购物车等。</p>
+<p>所以为了解决这一问题，先后出现了四种技术，分别是隐藏表单域，URL重写，cookie，session，而用的最多也是比较重要的就是cookie和session了。</p>
+<p><a href="https://mp.weixin.qq.com/s/IHJoPUa5G8ENU3lbZBFE7A" target="_blank" rel="noopener">图解ChunkSplitPlugin</a></p>
+<p>chunk(module 的集合)在 webpack 解析的依赖图中以父子关系联系起来的。最初CommonsChunkPlugin被设计用于 chunk 之间避免重复依赖，但是性能远远不是最优解。</p>
+<p>在 webpack 4 中，内置了ChunkSplitPlugin用于替代CommonsChunkPlugin。</p>
+<p>以下基于官方 demo进行梳理，将主要的数据结构结合图示和个人的理解进行总结。</p>
+<p>揭开此插件的设计思路和源码神秘面纱</p>
+<p><a href="https://mp.weixin.qq.com/s/ISnuV4R1FSrySglXLkyeXQ" target="_blank" rel="noopener">不可错过的实用前端工具</a></p>
+<p>给大家整理了 25 个前端相关的学习网站和一些靠谱的小工具，包括一些小游戏、教程、社区网站和博客，以及一些资源网站，希望可以帮助到大家！</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247484469&idx=1&sn=f68d044f1b0e4e2eb981e3878427b75b&scene=21#wechat_redirect" target="_blank" rel="noopener">Deep In React之浅谈 React Fiber 架构(一)</a></p>
+<p>2016 年都已经透露出来的概念，这都 9102 年了，我才开始写 Fiber 的文章，表示惭愧呀。不过现在好的是关于 Fiber 的资料已经很丰富了，在写文章的时候参考资料比较多，比较容易深刻的理解。</p>
+<p>我的思路是自上而下的介绍，先理解整体的 Fiber 架构，然后再细挖每一个点，所以这篇文章主要是谈 Fiber 架构的。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI1ODk2Mjk0Nw==&mid=2247484536&idx=1&sn=94777b8c1aab80dffe1fc224bec02c72&scene=21#wechat_redirect" target="_blank" rel="noopener">详解 React 16 的 Diff 策略</a></p>
+<p>我相信在看这篇文章的读者一般都已经了解过 React 16 以前的 Diff 算法了，这个算法也算是 React 跨时代或者说最有影响力的一点了，使 React 在保持了可维护性的基础上性能大大的提高，但 Diff 过程不仅不是免费的，而且对性能影响很大，有时候更新页面的时候往往 Diff 所花的时间 js 运行时间比 Rendering 和 Painting 花费更多的时间，所以我一直传达的观念是 React 或者说框架的意义是为了提高代码的可维护性，而不是为了提高性能的，现在所做的提升性能的操作，只是在可维护性的基础上对性能的优化。</p>
+<p><strong>公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。</strong></p>
+
         
             <div class="donate-container">
     <div class="donate-button">

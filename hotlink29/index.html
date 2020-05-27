@@ -11,7 +11,7 @@
 
     <title>
         
-        第25期 深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系 &amp; 精读《@umijs/use-request》源码 - llllll的博客 | HotLinkHub
+        第29期 写给初中级前端的高级进阶指南 &amp; 前端性能优化：当页面渲染遇上边缘计算 &amp; 平庸前端码农之蜕变 — AST - llllll的博客 | HotLinkHub
         
     </title>
 
@@ -102,7 +102,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#公众号-前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。"><span class="toc-text">公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -133,11 +133,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        第25期 深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系 &amp; 精读《@umijs/use-request》源码
+        第29期 写给初中级前端的高级进阶指南 &amp; 前端性能优化：当页面渲染遇上边缘计算 &amp; 平庸前端码农之蜕变 — AST
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2020-05-23 09:40:59</span></span>
+        <span class="attr">发布于：<span>2020-05-27 21:37:57</span></span>
         
         <span class="attr">标签：/
         
@@ -153,24 +153,27 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a href="https://mp.weixin.qq.com/s/QAuTBQUAc3K9ru1mPtCPbA" target="_blank" rel="noopener">为什么你的网页需要 CSP?</a></p>
-<p>CSP 的主要好处就是可以全面禁止使用不安全的嵌入式 JavaScript。内联 JavaScript（无论是反射的还是存储的），意味着不正确的转义用户输入都可以被 Web 浏览器解释为 JavaScript 代码。通过使用 CSP 禁用嵌入式 JavaScript，你可以有效消除针对你站点的几乎所有 XSS 攻击。</p>
-<p><a href="https://mp.weixin.qq.com/s/7Q_CTnOkXGH_8QCDhmvh1A" target="_blank" rel="noopener">Lighthouse 6.0 新功能</a></p>
-<p>5月19日，Lighthouse 发布了 6.0 版本，带来了非常多的新特性，让我们一起来了解一下吧！</p>
-<p><a href="https://mp.weixin.qq.com/s/ZbIiwSTurQXw6qu2rJwkJA" target="_blank" rel="noopener">精读《@umijs/use-request》源码</a></p>
-<p>与组件生命周期绑定的 Utils 非常适合基于 React Hooks 来做，比如可以将 “发请求” 这个功能与组件生命周期绑定，实现一些便捷的功能。</p>
-<p>这次以 @umijs/use-request 为例子，分析其功能思路与源码。</p>
-<p><a href="https://mp.weixin.qq.com/s/Bh-nveCyLqkEDGQXri-8fg" target="_blank" rel="noopener">深入解析 EventLoop 和浏览器渲染、帧动画、空闲回调的关系</a></p>
-<p>关于 Event Loop 的文章很多，但是有很多只是在讲「宏任务」、「微任务」，我先提出几个问题：</p>
-<ul>
-<li>每一轮 Event Loop 都会伴随着渲染吗？</li>
-<li>requestAnimationFrame 在哪个阶段执行，在渲染前还是后？在 microTask 的前还是后？</li>
-<li>requestIdleCallback 在哪个阶段执行？如何去执行？在渲染前还是后？在 microTask 的前还是后？</li>
-<li>resize、scroll 这些事件是何时去派发的。</li>
-</ul>
-<p><a href="https://mp.weixin.qq.com/s/uJeRnCOqsg1QVXbZwYzWAw" target="_blank" rel="noopener">node_modules 困境</a></p>
-<p>Ryan 对于 node.js 的十大遗憾之一就是支持了 node_modules，node_modules 的设计虽然能满足大部分的场景，但是其仍然存在着种种缺陷，尤其在前端工程化领域，造成了不少的问题，本文总结下其存在的一些问题，和可能的改进方式。</p>
-<h3 id="公众号-前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。"><a href="#公众号-前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。" class="headerlink" title="公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。"></a>公众号: 前端收藏家。收集全网优秀前端技术资讯，与你分享，共同成长。</h3>
+        <p><a href="https://mp.weixin.qq.com/s/v_emmx7alE2FdwWzHTcPAA" target="_blank" rel="noopener">写给初中级前端的高级进阶指南</a></p>
+<p>我曾经一度很迷茫，在学了Vue、React的实战开发和应用以后，好像遇到了一些瓶颈，不知道该怎样继续深入下去。相信这也是很多一两年经验的前端工程师所遇到共同问题，这篇文章，笔者想结合自己的一些成长经历整理出一些路线，帮助各位初中级前端工程师少走一些弯路。</p>
+<p><a href="https://mp.weixin.qq.com/s/n9q7X_zMStZPVgn8vmFoJA" target="_blank" rel="noopener">平庸前端码农之蜕变 — AST</a></p>
+<p>如果你查看目前任何主流的项目中的devDependencies，会发现前些年的不计其数的插件诞生。我们归纳一下有：javascript转译、代码压缩、css预处理器、elint、pretiier，等。有很多js模块我们不会在生产环境用到，但是它们在我们的开发过程中充当着重要的角色。所有的上述工具，不管怎样，都建立在了AST这个巨人的肩膀上。</p>
+<p><a href="https://mp.weixin.qq.com/s/_m_rf7xlSeVZO1NK58Z7lQ" target="_blank" rel="noopener">前端需要懂的 APP 容器原理</a></p>
+<p>App 容器，简言之，App 承载某类应用（H5/RN/Weex/小程序/Flutter …）的运行环境，可主动干预并进行功能扩展，达到丰富能力、优化性能、提升体验的目的，如页面数据预取（prefetch）缩短页面可用耗时、WebAR 将 AR 能力赋予 H5、Native 地图与 H5 复合渲染交互。</p>
+<p><a href="https://mp.weixin.qq.com/s/CwO2owC0t8sMnuSOoEyebw" target="_blank" rel="noopener">相见恨晚的 Git 命令动画演示，一看就懂！</a></p>
+<p>虽然 Git 是一个强大的工具，但是我觉得大部分人都会同意我说的：它也可以是一个……噩梦！我一直觉得，使用 Git 的时候把操作过程在脑海里视觉化会非常有用：当我执行某个命令的时候，分支之间是如何交互的？又是如何影响提交历史的？当我在master分支执行hard reset、force push到 origin、在.git文件夹执行rimraf的时候，为什么我的同事都哭了？</p>
+<p><a href="https://mp.weixin.qq.com/s/b4DbvkkIwGvvSZhy_fBE1w" target="_blank" rel="noopener">5种延迟加载图像的方法以帮助你提升网站性能与用户体验</a></p>
+<p>在本文中，你将了解5种延迟加载图像的方法，可以将它们添加到Web优化工具包中以改善网站上的用户体验。</p>
+<p><a href="https://mp.weixin.qq.com/s/Ez_GjA-eEGyE5izq6VKONA" target="_blank" rel="noopener">前端性能优化：当页面渲染遇上边缘计算</a></p>
+<p>对于 web 页面来说，首跳场景（例如 SEO、付费引流）的性能普遍比二跳场景下要差。原因有多种，主要是首跳用户在连接复用，和本地资源缓存利用方面，有很大的劣势。首跳场景下，很多在端上的优化手段（预加载，预执行，预渲染等）无法实施。</p>
+<p>在客户端缓存能力无法利用的情况下，利用 cdn 距离用户近的特性，可以结合缓存做一些性能优化。</p>
+<p><a href="https://mp.weixin.qq.com/s/XzecUnT3RVB9T64iIKLYfw" target="_blank" rel="noopener">XSS 最全攻防之战！</a></p>
+<p>在上世纪 90 年代，这种攻击主要是跨域攻击，而一个网站就是一个域名，所以叫“跨站脚本攻击”。但是发展到今天，是否跨域已经不重要了，由于这个历史原因，XSS 这个名字也一直延续至今。</p>
+<p><a href="https://mp.weixin.qq.com/s/kGd5gqgCnkgISNd-a8DlCg" target="_blank" rel="noopener">读懂 TS 中联合类型和交叉类型的含义</a></p>
+<p>联合类型在 TypeScript 中相当流行，你可能已经用过很多次了。交叉类型稍微不那么常见。它们似乎引起更多的困惑。</p>
+<p>你有没有想过这些名字是怎么来的？虽然你可能对两种类型的并集有一些直观感受，但交集通常不太容易理解。</p>
+<p>阅读本文之后，你将对这些类型有更好的了解，这将使你在代码中使用它们时更有信心。</p>
+<p><strong>公众号: 前端收藏家。只收藏好的，只推荐好的</strong></p>
+
         
             <div class="donate-container">
     <div class="donate-button">
