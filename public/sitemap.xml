@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.hotlinkhub.com/hotlink30/</loc>
+    
+    <lastmod>2020-05-28T13:10:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.hotlinkhub.com/hotlink29/</loc>
     
     <lastmod>2020-05-27T13:50:17.000Z</lastmod>
@@ -86,14 +93,7 @@
   </url>
   
   <url>
-    <loc>https://www.hotlinkhub.com/js-inheritance/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/hotlink17/</loc>
+    <loc>https://www.hotlinkhub.com/js-new/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
     
@@ -170,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://www.hotlinkhub.com/csp-frame-ancestors-vs-x-frame-options/</loc>
+    <loc>https://www.hotlinkhub.com/js-inheritance/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.hotlinkhub.com/js-new/</loc>
+    <loc>https://www.hotlinkhub.com/csp-frame-ancestors-vs-x-frame-options/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
     
@@ -318,6 +318,13 @@
   
   <url>
     <loc>https://www.hotlinkhub.com/hotlink18/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink17/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
     
