@@ -66,10 +66,6 @@ function newFactory() {
 
 [js 实现一个throttle节流函数](https://juejin.im/post/5ec8f771f265da770a6156d1)
 
-#### js的闭包理解
-
-根据MDN对闭包的描述，当一个函数和它外部的引用捆绑在一起的时候就形成了闭包。
-
 #### 用 ES5 实现私有变量
 可以使用闭包实现：
 ```javascript
@@ -86,7 +82,70 @@ Tool.getKeyboard() // hhkb
 Tool.keyboard // undefined
 ```
 
-#### 手写Promise.all
+#### js基本数据类型
+null, undefined, boolean, number, string, symbol, object
+
+#### 数组的常用操作方法以及是否修改原数组
+不会修改原数组：concat, entries, every, filter, find, findIndex, forEach, includes, indexOf, join, map, reduce, slice, some, sort, toString
+会修改原数组：fill, pop, push, reverse, shift, splice, unshift
+
+#### 什么是闭包？它有什么作用？
+闭包就定义在一个函数内部的函数，并且它引用了其外部函数的变量。
+主要用于获取函数内部变量以及让变量始终保持在内存中。可以实现一些抽象封装的逻辑，比如私有变量。
+闭包会导致变量一直保存在内存中，过量或者使用不当会造成内存泄漏以及性能问题。
+
+#### 什么是箭头函数？和普通函数有什么区别
+箭头函数是ES6提供的一种创建函数的新语法。
+1. 箭头函数没有自己的this，它的this总是指向外层执行环境的this，它的this在定义时候就已经决定了，并且永远不会改变
+2. 箭头函数不能作为构造函数使用，因为它没有自己的this，使用new的时候会报类型错误，提示其不是一个构造函数
+3. 箭头函数没有arguments对象，可以使用扩展运算符获取所有参数，比如const foo = (...args) => consle.log(args)
+4. 箭头函数没有prototype
+5. 箭头函数不能作为generator函数，不能使用yield关键字
+
+#### 如何实现一个深拷贝
+
+[js 如何实现深拷贝deepClone](https://juejin.im/post/5ed3768ef265da77031b6278)
+
+#### script module
+
+浏览器原生支持的模块系统，用法和es6的module类似，通过给script标签添加一个type='module'属性来实现。更高效。
+
+#### 手写Promise.all, Promise.race实现
+
+```js
+// Promise.all
+Promise.prototype.all = function(promises) {
+  return new Promise((resolve, reject) => {
+    if (!Array.isArray(promises)) {
+      return reject(new TypeError('Promise.all param must be array'))
+    }
+    let resolvedCount = 0
+    const resolvedValues = []
+    for(let i = 0; i < promises.length; i++) {
+      Promise.resolve(premises[i]).then(value => {
+        resolvedCount++
+        resolvedValues.push(value)
+        if (resolvedCount === promises.length) {
+          return resolve(resolvedValues)
+        }
+      }, error => {
+        return reject(error)
+      })
+    }
+  })
+}
+
+// Promise.race
+Promise.prototype.race = function(promises) {
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < promiseAry.length; i++) {
+      promiseAry[i].then(resolve, reject)
+    }
+  })
+}
+```
+
+#### 什么是事件循环？这个循环会一直下去么，宏任务和微任务的区别？如果在Event Loop中，不断push微任务是否一直会执行
 
 // TODO:
 
@@ -102,7 +161,17 @@ Tool.keyboard // undefined
 
 // TODO:
 
+#### webpack打包原理
+
+#### webpack的性能优化如何做
+
+#### webpack的loader和Plugins有什么区别，webpack是如何去使用Plugins的
+
+// TODO
+
 #### 写一个 promise 重试函数，可以设置时间间隔和次数。function foo(fn, interval, times) {}
+
+#### 手写promise的sleep函数实现
 
 // TODO:
 
@@ -110,9 +179,13 @@ Tool.keyboard // undefined
 
 // TODO:
 
-#### 小程序架构
+#### 小程序架构，小程序的同层渲染原理，小程序的bindtap和catchtap的区别，小程序的通信是怎么样的，小程序的setData的数据如何很大，如何解决, webview组件和原生组件的区别
 
 // TODO:
+
+#### 请求超时timeout的原理
+
+--- 
 
 ### 二、typescript
 
@@ -172,6 +245,20 @@ React使用的合成事件，所有事件都是统一注册到document(一些原
 
 // TODO:
 
+#### React的setState的机制是什么
+
+// TODO
+
+#### 描述一下redux的中间件原理，redux如何进行异步处理
+
+// TODO
+
+#### React hooks的优点
+
+// TODO
+
+#### Dva的同步状态管理，异步状态管理，是如何实现的
+
 ### 四、CSS
 
 #### flex 0 1 auto表示什么意思
@@ -179,6 +266,93 @@ React使用的合成事件，所有事件都是统一注册到document(一些原
 
 #### css优先级
 important > 内联 > ID 选择器 > 类选择器 > 标签选择器
+
+#### css选择器
+
+// TODO
+
+#### 移动端适配方案
+
+// TODO
+
+#### flex的布局了解么，什么是主轴，如何控制主轴和副轴，Flex的优点和缺点
+
+// TODO
+
+#### 如何实现水平垂直居中
+```css
+.box {
+  display: flex;
+  jutify-content: center;
+  align-items: center;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%)
+  transform: translateY(-50%)
+}
+```
+
+#### 什么是BFC，它的作用是什么，什么行为会产生BFC
+
+// TODO
+
+#### css的动画如何实现, transform有什么好处
+
+// TODO
+
+#### 回流和重绘的区别，什么行为会导致回流，什么行为会导致重绘
+
+// TODO
+
+#### CSS3里面新增了哪些属性
+
+// TODO
+
+#### 1px的问题可以如何去解决
+
+// TODO
+
+#### less, sass 用过哪些函数
+
+// TODO
+
+#### 如何通过CSS实现一个梯形
+
+---
+
+### 浏览器
+
+#### 描述一下浏览器页面渲染的过程
+
+// TODO
+
+#### 浏览器白屏是什么导致的
+
+// TODO
+
+#### 浏览器存储Cookie、localstorage、sessionStorage的区别
+
+// TODO
+
+#### cookie如何进行设置的，JS能改变哪些值
+
+// TODO
+
+#### 解决跨域的方法有哪几种，描述一下JSONP的原理，描述一下CORS的过程
+
+// TODO
+
+#### 进程和线程
+
+#### 移动端的性能优化
+
+#### 如何进行首屏加载优化
+
+---
 
 ### 五、算法
 
@@ -212,12 +386,19 @@ var longestCommonPrefix = function(strs) {
 };
 ```
 
+#### 寻找最长不重复子串
+
 #### js实现一个单链表，双向链表
 
 #### 怎么判断单链表相交
 
 #### 怎么找到链表第一个相交节点
 
+#### 实现一个sum方法【sum(1, 2, 3)(4)，sum(1, 2)(3, 4)类似的调用】，同时console.log(sum(1, 2, 3)(4) => //输出10
+
+#### 给定一个先增后降的数组，找出其中的最大值
+
+#### 如何实现两个有序数组的合并，要求时间复杂度是O(n)
 
 ### 六、HTTP以及安全相关
 
@@ -233,3 +414,29 @@ var longestCommonPrefix = function(strs) {
 
 #### csrf是什么，如何防范
 
+#### HTTP1.1/HTTP2.0的区别，http3
+
+
+---
+
+### node
+
+#### node内存泄漏的原因
+
+---
+
+### 项目
+
+#### 项目中遇到的问题，如何解决的
+
+#### 项目中还有什么需要改进的地方
+
+#### 在公司有啥技术贡献
+
+#### 自己最大的成长是什么
+
+#### 自己觉得在原公司的开发流程上，还有哪些可以改进的
+
+#### 自己未来的职业规划是怎样的
+
+#### 平时如何进行学习的，目前在学习什么【慎重回答，这是面试的扩展点】
