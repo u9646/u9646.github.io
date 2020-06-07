@@ -145,47 +145,125 @@ Promise.prototype.race = function(promises) {
 }
 ```
 
-#### 什么是事件循环？这个循环会一直下去么，宏任务和微任务的区别？如果在Event Loop中，不断push微任务是否一直会执行
+#### 什么是事件循环？
 
-// TODO:
+浏览器环境的事件循环：
+主线程会执行所有同步代码，当遇到异步任务时，会将其放到事件队列中，然后继续执行后面的同步代码。一直到主线程执行完所有同步代码。然后再去事件队列中取出任务进行执行。异步任务又分为宏任务和微任务，setTimeout, setInterval属于宏任务，而Promise, MutationObserver属于微任务。主线程执行完同步代码后总是先执行所有的微任务队列，然后再去执行宏任务队列。如果执行事件队列里面的任务时遇到其他异步任务，则继续重复上述操作，一直循环下去。
+
+node的事件循环：
+node的事件循环其实是依靠libuv实现的，node事件循环是：外部输入数据->轮询阶段poll->检查阶段check->关闭事件回调阶段close callbacks->定时器执行阶段timers->I/O事件回调阶段I/O callbacks->闲置阶段idle, prepare->轮询阶段这样一个执行过程。
+
+timers阶段会执行定时器回调，比如setTimeout, setInterval, check阶段会执行setImmediate
+
+推荐这篇文章，写得非常好：https://zhuanlan.zhihu.com/p/33058983
+
+#### 宏任务和微任务的区别？
+setTimeout, setInterval, requestAnimationFrame, I/O, setImmediate属于宏任务
+process.nextTick, MutationObserver, Promise.then catch finally属于微任务
+
+#### 如果在Event Loop中，不断push微任务是否一直会执行?
+如果在执行微任务的时候，微任务又有微任务，那么会一直执行下去，不过浏览器有没有做一个限制就不太清楚了。
+```
+setTimeout(_ => console.log('timeout'))
+
+new Promise((resolve, reject) => {
+  console.log(1)
+  resolve()
+}).then(() => {
+  new Promise((resolve, reject) => {
+    console.log(2)
+    resolve()
+  }).then(() => {
+    new Promise((resolve, reject) => {
+      console.log(3)
+      resolve()
+    })
+  })
+})
+
+// 会输出1,2,3,timeout
+```
 
 #### import 和 require 导入的区别
 
-// TODO:
+import是es6的模块规范，而require是commonjs模块规范；
+import是编译时执行，所以必须放在模块顶部，而require是运行时加载，可以在任何地方，像一个函数一样调用。
+require使用的是拷贝，针对基础类型，会拷贝值，对于引用类型，会复制其值的引用。但是import不管是基础类型还是引用类型，都是生成一个引用。
+当使用require命令加载某个模块时，会执行整个模块，当重复加载某一个模块时，不会再执行该模块，而是取缓存中的值
 
 #### require 有什么性能问题
 
-// TODO:
+require是运行时加载，所以会影响性能，而且在浏览器端，因为资源是放在服务端的，那么就会阻塞后面的代码执行。
+
+#### module.exports 和 exports区别
+exports是module.exports的一个引用，最终返回的都是module.exports的值，建议一直使用module.exports，因为如果你不小心将exports直接赋值为一个变量，比如exports = xxx，那么这个时候module.exports其实并没有改变，最终返回的也不是你想要的。
 
 #### webpack 如何实现动态加载
 
-// TODO:
+主要通过import()实现，webpack遇到import()时，会将这个模块单独打包，然后当浏览器执行到这里时，才去加载对应的资源，然后执行。
 
 #### webpack打包原理
 
+https://juejin.im/post/5e116fce6fb9a047ea7472a6
+
 #### webpack的性能优化如何做
+
+https://juejin.im/post/5b652b036fb9a04fa01d616b
 
 #### webpack的loader和Plugins有什么区别，webpack是如何去使用Plugins的
 
-// TODO
+loader，它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。
 
-#### 写一个 promise 重试函数，可以设置时间间隔和次数。function foo(fn, interval, times) {}
+plugin是一个扩展器，它丰富了webpack本身，针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务，比如代码压缩等。
+
+#### 写一个 promise 重试函数，可以设置时间间隔和次数。
+```js
+Promise.retry = function(fn, times, delay){
+  return new Promise((resolve, reject) => {
+    let retryCount = times
+    const action = function() {
+      fn().then(res => {
+          resolve(res)
+      }).catch(err =>{
+          if(retryCount <= 0){
+            reject(err)
+          } else {
+            retryCount--
+            setTimeout(() => action(), delay)
+          }
+      })
+    }
+    action(resolve, reject)
+  })
+}
+```
 
 #### 手写promise的sleep函数实现
 
-// TODO:
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 #### 实现一个 redux
 
-// TODO:
+https://github.com/brickspert/blog/issues/22
 
 #### 小程序架构，小程序的同层渲染原理，小程序的bindtap和catchtap的区别，小程序的通信是怎么样的，小程序的setData的数据如何很大，如何解决, webview组件和原生组件的区别
 
-// TODO:
+小程序架构：
+小程序是由两个webview去渲染的，一个专门负责UI层渲染，另一个专门复制执行JS，好处就是js无法直接操作DOM，能够解决很多安全问题，更新DOM需要使用微信提供的API，通过这种机制，可以很好的解决安全方面的问题，但同时也带来了一些性能上的问题。
 
-#### 请求超时timeout的原理
+小程序同层渲染原理：
+https://developers.weixin.qq.com/community/develop/article/doc/000c4e433707c072c1793e56f5c813
 
---- 
+小程序的bindtap和catchtap的区别：
+bind不会阻止事件向上冒泡，catch会阻止事件冒泡
+
+小程序的setData的数据如何很大：
+可以增量更新，比如一个大的数据其中只有一部分数据更新了，我们不需要全量更新，只更新变化的数据即可
+
+
+小程序的通信是怎么样的：
+利用page的onShow/onHide事件，将数据存到一个公共的storage里面，比如localStorage, globalData，实现通信。或者使用发布订阅模式实现通信。
+
 
 ### 二、typescript
 
