@@ -11,7 +11,7 @@
 
     <title>
         
-        llllll的博客 | HotLinkHub
+        第37期 一次性讲明白vue插槽slot &amp; React Fiber调度机制和事件系统 &amp; MVC启示录-模块的职责，作用域和通信 - llllll的博客 | HotLinkHub
         
     </title>
 
@@ -66,7 +66,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -101,6 +101,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -125,175 +129,66 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 576px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-30</div>
-        <div class="post-info">
-            <a href="/hotlink31/">
-                <h3>
-                    第31期 技术人如何自我成长 &amp; 还分不清 Cookie、Session、Token、JWT
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        第37期 一次性讲明白vue插槽slot &amp; React Fiber调度机制和事件系统 &amp; MVC启示录-模块的职责，作用域和通信
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-28</div>
-        <div class="post-info">
-            <a href="/hotlink30/">
-                <h3>
-                    第30期 边缘计算听说过吗？淘宝用它提升了69%的首屏性能 &amp; 聊聊苹果营销页中几个有趣的交互动画 &amp; Webpack5 上手测评
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-07 21:22:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-27</div>
-        <div class="post-info">
-            <a href="/hotlink29/">
-                <h3>
-                    第29期 写给初中级前端的高级进阶指南 &amp; 前端性能优化：当页面渲染遇上边缘计算 &amp; 平庸前端码农之蜕变 — AST
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="post-content ">
+        <p><a href="https://mp.weixin.qq.com/s/w24UUSl_kosclM_ct8Hk3w" target="_blank" rel="noopener">MVC启示录 - 模块的职责，作用域和通信</a></p>
+<p>在上一篇中，我提出了一个应用中常见的问题：如何在多个视图中共享同一份数据，并且保证它的改动能够同步到不同的视图中去？</p>
+<p>针对这个问题我给出了两类解决方案：一类是用户行为驱动的意识流编码，比如当我选择将素材回滚到某个历史版本时，我想当然的手动去更新每一个视图</p>
+<p><a href="https://mp.weixin.qq.com/s/3jc5ljVJbgKth1E71ckWKQ" target="_blank" rel="noopener">Webpack 插件开发如此简单</a></p>
+<p>本文使用的Webpack-Quickly-Starter快速搭建 Webpack4 本地学习环境。<br>建议多阅读 Webpack 文档《Writing a Plugin》章节，学习开发简单插件。</p>
+<p><a href="https://mp.weixin.qq.com/s/ppBC93ZCS4F9XgwTDjs5nA" target="_blank" rel="noopener">React Fiber 调度机制和事件系统</a></p>
+<p>经典的事件系统分成两大块，绑定事件与分派事件，在浏览器中，分派事件很少人会直接 dispatchEvent。因为创建一个 DOM 事件是非常复杂的事情，不同的事件对象对应不同的事件构造器，传参也五花八门。因为分派事件基本上用户行为触发，比如我们点击了某个元素，恰逢在这上方绑定了点击事件，于是触发了。</p>
+<p><a href="https://mp.weixin.qq.com/s/0w6aWwpR3MAJnmyLwDnAzA" target="_blank" rel="noopener">JavaScript 内存泄漏防范之道</a></p>
+<p>一般情况下，忽视内存管理不会对传统的网页产生显著的后果。这是因为，用户刷新页面后，内存数据都被清理了。</p>
+<p>但是随着SPA（单页应用）的普及，我们不得不更加关注页面的内存管理。用户在 SPA 上往往很少刷新页面，随着页面停留时间的增长，内存可能越占越多，轻则影响页面性能，严重的可能导致标签页崩溃。</p>
+<p>在这篇文章中，我们将探讨导致 JavaScript 中内存泄露的常见原因，以及如何改善内存管理。</p>
+<p><a href="https://mp.weixin.qq.com/s/UdCl9WWwLTIJJClIjxk7TQ" target="_blank" rel="noopener">一次性讲明白vue插槽slot</a></p>
+<p>我们在构建页面过程中一般会把用的比较多的公共的部分抽取出来作为一个单独的组件，但是在实际使用这个组件的时候却又不能完全的满足需求，我希望在这个组件中添加一点东西，这时候我们就需要用到插槽来分发内容。</p>
+<p><strong>关注微信公众号: 前端收藏家。一起进步，共同成长</strong></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-26</div>
-        <div class="post-info">
-            <a href="/hotlink28/">
-                <h3>
-                    第28期 React Hooks深入系列 &amp; JavaScript可视化：Promise和Async/Await &amp; 基于Express应用框架的技术方案选型浅谈
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-26</div>
-        <div class="post-info">
-            <a href="/pwa/">
-                <h3>
-                    如何快速将你的SPA应用改造成PWA应用
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#pwa" title="pwa">pwa</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-25</div>
-        <div class="post-info">
-            <a href="/hotlink27/">
-                <h3>
-                    第27期 这就是你日思夜想的React原生动态加载 &amp; GraphQL到底怎么使 &amp; 一文从零彻底搞懂前端的内存监控、异常、泄漏
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-24</div>
-        <div class="post-info">
-            <a href="/hotlink26/">
-                <h3>
-                    第26期 详解React 16的Diff策略 &amp; 深入分析Session和Cookie &amp; 图解ChunkSplitPlugin
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#精选" title="精选">精选</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-23</div>
-        <div class="post-info">
-            <a href="/js-throttle/">
-                <h3>
-                    js 实现一个throttle节流函数
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page/3/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -348,7 +243,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
@@ -358,5 +253,24 @@
 
 
 
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
 
 </html>
