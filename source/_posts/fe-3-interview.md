@@ -345,13 +345,10 @@ React使用的合成事件，所有事件都是统一注册到document(一些原
 #### css优先级
 important > 内联 > ID 选择器 > 类选择器 > 标签选择器
 
-#### css选择器
-
-// TODO
-
 #### 移动端适配方案
 
-// TODO
+1. 通过meta标签设置viewport为<meta name="viewport" content="width=width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+2. 可以针对不同设备像素比dpr设置不同的样式，也可以动态设置html的font-size，然后使用rem
 
 #### flex的布局了解么，什么是主轴，如何控制主轴和副轴，Flex的优点和缺点
 
@@ -414,11 +411,17 @@ important > 内联 > ID 选择器 > 类选择器 > 标签选择器
 
 #### 浏览器存储Cookie、localstorage、sessionStorage的区别
 
-// TODO
+生命周期不一样，cookie可以设置失效时间，不设置的话默认浏览器关闭后失效，localStorage除非手动清除，否则永久保存，sessionStorage仅在当前网页会话中有效，关闭页面或者浏览器后就会被清除。
+
+存储数据大小不一样，cookie在4KB左右，localStorage和sessionStorage是5MB
+
+http请求，cookie会每次都在请求头中，如果cookie过多会导致请求变大，影响性能，localStorage, sessionStorage仅在客户端使用
+
+然后cookie的接口不友好，storage会稍微方便一些
 
 #### cookie如何进行设置的，JS能改变哪些值
 
-// TODO
+通过document.cookie=newCookie设置，可以设置key, value, path, domain, max-age, expires,secure
 
 #### 解决跨域的方法有哪几种，描述一下JSONP的原理，描述一下CORS的过程
 
