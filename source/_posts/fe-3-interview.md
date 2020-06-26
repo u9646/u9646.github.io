@@ -58,6 +58,18 @@ function newFactory() {
 
 [如何模拟实现一个call、apply、bind函数](https://juejin.im/post/5ebbde296fb9a0433769777a)
 
+#### js 函数柯里化
+```js
+function curry(fn, ...args) {
+  if (args.length >= fn.length) {
+    return fn(...args);
+  }
+  return function(...args2) {
+    return curry(fn, ...args, ...args2);
+  }
+}
+```
+
 #### js实现一个debounce防抖函数
 
 [js 实现一个debounce防抖函数](https://juejin.im/post/5ec8eff4f265da76b4047da4)
@@ -71,7 +83,7 @@ function newFactory() {
 ```javascript
 var Tool = (function() {
   var keyboard = 'hhkb'
-  return {
+  return { 
     getKeyboard: function() {
       return keyboard;
     }
@@ -293,15 +305,18 @@ React使用的合成事件，所有事件都是统一注册到document(一些原
 
 #### React如何做性能优化
 一方面从控制render以及减少计算方面入手。
-控制render也就减少了React的diff过程，常用不同类型组件的一些手段比如shouleComponentDidUpdate, React.memo。还可以使用useCallback避免函数的更新导致的render，因为函数式组件其实每次都会创建一个新的函数。
+控制render也就减少了React的diff过程，常用不同类型组件的一些手段比如shouleComponentUpdate, React.memo。还可以使用useCallback避免函数的更新导致的render，因为函数式组件其实每次都会创建一个新的函数。
 减少计算可以通过useMemo缓存计算结果，只在必要的时候计算。
 
 另一方面从减少代码体积方面入手
 可以使用React.lazy配合webpack实现组件的懒加载。
 
+#### React虚拟DOM意义
+
+
 #### React的diff策略，React 16和之前版本diff有什么不同
 
-// TODO:
+[Deep In React 之详谈 React 16 Diff 策略(二)](https://segmentfault.com/a/1190000019918133)
 
 #### React的生命周期的理解，以及16和之前版本区别，为什么有这种区别？
 
@@ -309,17 +324,13 @@ React使用的合成事件，所有事件都是统一注册到document(一些原
 
 #### React Hooks怎么处理生命周期
 
-// TODO:
+React Hooks其实并没有生命周期的概念了，如果非要说想实现之前类似的效果，比如componentDidMount，可以将useEffect的第二个参数设为空数据，即表明这里的回调函数不依赖任何其他参数，只会在组件初始化的时候执行。
 
 #### class 组件与函数式组件的区别
 
 [函数式组件与类组件有何不同？](https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/)
 
 #### React.lazy 的原理是啥
-
-// TODO:
-
-#### react-redux原理
 
 // TODO:
 
@@ -373,29 +384,37 @@ important > 内联 > ID 选择器 > 类选择器 > 标签选择器
 
 #### 什么是BFC，它的作用是什么，什么行为会产生BFC
 
-// TODO
+块级格式化上下文。BFC会建立一个隔离的空间，断绝空间内外元素间相互的作用。当元素的display: flex | inline-flex或者overflow: hidden;或者position: absolute会创建一个BFC。
 
 #### css的动画如何实现, transform有什么好处
 
-// TODO
+可以使用transition, animation等实现，transform可以开启硬件加速，并且不会引起回流重绘
 
 #### 回流和重绘的区别，什么行为会导致回流，什么行为会导致重绘
 
-// TODO
+元素的布局位置发生改变的话会导致回流，元素的颜色等不影响布局的属性发现改变的时候会导致重绘，回流一定会导致重绘，但是重绘不一定会导致回流
+
+当我们使用js获取元素的一些布局属性的时候，比如offsetTop, clientTop, getComputedStyle, getBoundingClientRect等，因为浏览器需要重新执行layout来返回正确的值。
+
+CSS3的transform等动画不会引起回流重绘
 
 #### CSS3里面新增了哪些属性
 
-// TODO
+transition, transform, animation, 选择器，比如:disabled, :last-child, :nth-child
+border-radius, background-size, text-shadow, font-face
 
 #### 1px的问题可以如何去解决
 
-// TODO
-
-#### less, sass 用过哪些函数
-
-// TODO
-
-#### 如何通过CSS实现一个梯形
+ios可以使用0.5px；
+使用边框图片
+使用box-shadow实现：
+```css
+box-shadow: 0  -1px 1px -1px #e5e5e5,   //上边线
+            1px  0  1px -1px #e5e5e5,   //右边线
+            0  1px  1px -1px #e5e5e5,   //下边线
+            -1px 0  1px -1px #e5e5e5;   //左边线
+```
+还可以借助于transform，将1px的通过scale(0.5)缩小一倍
 
 ---
 
@@ -403,11 +422,12 @@ important > 内联 > ID 选择器 > 类选择器 > 标签选择器
 
 #### 描述一下浏览器页面渲染的过程
 
-// TODO
+浏览器获取到html之后，会开始进行解析，如果遇到css资源，会同步去加载css资源，如果遇到script，会停止解析，知道js执行完毕，因为js可能会改变DOM。（script可以设置async, defer进行异步加载，区别是async加载完会立即执行，这个时候html解析会停止，而defer会在html解析完成之后才执行）。也就是说浏览器会同步处理html和css，然后分别生成一个DOM树，一个CSS树，然后将其合成为一个render树，再遍历渲染树开始计算布局，最后将其绘制到屏幕上。
+
 
 #### 浏览器白屏是什么导致的
 
-// TODO
+浏览器渲染时候没有请求到或着是请求时间过长导致的。浏览器在执行css,图片等资源时是并发加载的，但是对于js会阻塞html的解析，如果js放在页面顶部也可能会导致白屏。
 
 #### 浏览器存储Cookie、localstorage、sessionStorage的区别
 
@@ -425,11 +445,29 @@ http请求，cookie会每次都在请求头中，如果cookie过多会导致请�
 
 #### 解决跨域的方法有哪几种，描述一下JSONP的原理，描述一下CORS的过程
 
-// TODO
+1. 配置CORS。
+2. 使用JSONP。
+JSONP原理：
+浏览器端：定义一个函数，假设名为getName，然后创建一个script标签，将其src设置为类似/api?callback=getName的形式。
+服务器端：根据请求的callback，返回一个js，这个js是类似这样的：
+```
+getName(data) // data即我们想要跨域获取的数据
+```
+因为script加载的js，浏览器会执行，也就执行了getName函数，而这个函数，我们之前已经定义了，所以这个函数内部就可以获取到数据。这就是JSONP跨域的原理。主要是利用了script标签不会有同源策略的限制。实际生产中，还是建议使用CORS的策略。
+3. nginx反向代理
+4. 使用websocket
 
 #### 进程和线程
 
-#### 移动端的性能优化
+进程是程序的一个执行过程，是系统进行资源分配和调度的基本单位。线程是CPU调度和分配的基本单位，一个进程中的多个线程可以共享进程的资源。
+
+#### web性能优化
+
+1. 压缩资源体积，可以通过webpack压缩js/css/html等资源，对于图片进行压缩，选择合适的图片格式，比如不需要透明通道的话应该使用jpg代替png
+2. 减少请求数量，可以对打包出来的js/css进行一个合理的拆分，不要让单个文件体积过大，也不要拆分的太碎，那样会增加请求数量，对于图标类，尽量使用svg代替图片。同时可以做动态加载，每次只加载必须的资源，对于图片可以做一个懒加载，在显示的时候才去请求资源
+3. 优化资源下载速度，将静态资源部署在CDN上，合理的运用浏览器预加载
+4. 增加缓存，可以利用http缓存相关资源，或者使用service worker，localStorage等手段缓存
+6. 开发过程中，注意回流和重绘的问题，做一些动画等功能合理运用硬件加速的性能
 
 #### 如何进行首屏加载优化
 
@@ -493,10 +531,42 @@ var longestCommonPrefix = function(strs) {
 
 #### xss是什么，如何防范
 
+跨站脚本攻击，当我们什么都不处理的时候，假设有人在评论里面输入来一段js脚本，那么当页面渲染时，会将这个当成一个脚本来执行，也就产生了XSS。危险程度还是非常高的。
+如何防范：
+从输入输出源进行控制，同时返回头中设置x-xss-protection: 1; mode=block，让浏览器启用xss过滤，如果检测到攻击，就阻止页面加载。当页面需要渲染富文本时，建议使用成熟的xss组件。
+
+对url要进行encode
+
+设置CSP，限制非白名单脚本的执行
+
 #### csrf是什么，如何防范
+
+跨站请求伪造，攻击过程是这样的：
+当你在A页面登录之后，来到了B页面，这个页面会发起一个A页面的请求，这个时候请求虽然是在B页面发出的，但是浏览器还是会带上A页面登录态等cookie，如果没有任何其他防范措施，这个请求是可以成功的。
+如何解决呢：
+由于请求是在B页面发出的，那么请求的referer其实是B页面，而不是A页面，可以通过校验referer来判断，不过因为部分浏览器下referer可能会被修改，所以这种方式其实是不可靠的
+另一种方式就是加一个token，当你登录成功后，后端通过cookie返回一个token，然后前端每次请求都从cookie里面获取这个token，然后添加到请求头上，因为B页面只能发起请求，没法控制这个请求头，所以这里发出的请求是没有token那个请求头的，后端校验的时候看没有这个请求头，就会拒绝这个请求，从而进行防范
+
+#### 其他安全问题
+
+1. 点击劫持，主要是因为没有限制iframe加载导致的，可以将你的服务请求头设置为x-frame-options为sameorigin，或者通过CSP设置frame-ancestor为白名单，限制其他服务使用iframe去加载你的网站
+
+2. 开启HSTS头，Strict-Transport-Security: max-age=xxxx;includeSubDomains，禁止浏览器使用http方式加载网址，当我们访问http的网址时，可能会被重定向到https的，但是由于http可能被劫持，可能会被重定向到一个恶意网址。但是第一次访问的时候，HSTS并不能生效，浏览器还未收到HSTS。解决方案是浏览器预置HSTS域名列表，二是将HSTS信息加入到域名系统中。
+
+3. window.opener，默认使用a标签或者通过window.open('http://xxx')打开一个新页面的时候，新页面可以通过window.opener获取到前一个页面的window对象，然后就可以进行一些操作，比如将你导航到一个伪造的页面。针对a标签，应该加上rel="noopener noreferrer nofollow"，一般eslint都会有这个提示，window.open可以const newTab = window.open(); newTab.opener = null来控制。
+
+4. CDN 劫持，现在前端基本会将静态资源存储在CDN上，如果CDN被劫持了，那么攻击者就可以纂改我们的前端页面。可以通过SRI，即子资源完整性校验来防范。script和link标签可以设置integrity属性，这个属性是资源的一个哈希值，浏览器可以通过获取文件的哈希值和你提供的哈希值来判断资源是否被纂改。
 
 #### HTTP1.1/HTTP2.0的区别，http3
 
+HTTP2升级：
+1. 协议解析基于二进制格式
+2. 多路复用。一个连接上可以有多个请求，每个请求可以混杂在一起，接收方可以根据请求id进行归类
+3. header压缩。同时使用缓存，避免每次都传输一份完整的头
+4. 服务端推送
+
+HTTP1.1的多路复用和HTTP2区别：
+HTTP1.1是使用排队的方式，前面的会阻塞后面的，HTTP2可以并行执行，不会影响其他请求
 
 ---
 

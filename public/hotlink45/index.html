@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="热门技术文章分享">
+    <meta name="keyword"  content="fe, js, css, html5, nodejs, webpack, react, vue, nginx">
+    <meta name="baidu-site-verification" content="zjvdQ5tUdb" />
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        第45期 从0实现React系列(二)：组件更新 &amp; CSS幻术-抗锯齿 &amp; 揭秘Vue中的Virtual Dom &amp; 小程序进阶之路：跨平台开发避坑指南 - llllll的博客 | HotLinkHub
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158254594-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158254594-1');
+    </script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> H5 React Webpack Mongodb JS CSS Vue </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>llllll</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> H5 React Webpack Mongodb JS CSS Vue </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        第45期 从0实现React系列(二)：组件更新 &amp; CSS幻术-抗锯齿 &amp; 揭秘Vue中的Virtual Dom &amp; 小程序进阶之路：跨平台开发避坑指南
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-19 08:41:19</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#精选" title="精选">精选</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr"><span id="busuanzi_container_page_pv">
+            有<span id="busuanzi_value_page_pv"></span>人看过
+          </span></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a href="https://mp.weixin.qq.com/s/dHomapNrLAgZLwhIsM5qdw" target="_blank" rel="noopener">CSS 幻术 - 抗锯齿</a></p>
+<p>传统网页的呈现是基于像素单位的，所以图片不能和 SVG 一样进行任意尺寸缩放后还保持边缘平整。也就是说，放大像素逻辑的图片，必然导致可视质量下降（信息失真）。所以我们往往会使用技术手段去规避失真</p>
+<p><a href="https://mp.weixin.qq.com/s/192wOfkir5HcOfmNkPr4Kw" target="_blank" rel="noopener">用一句话描述 JS 异常是否能被 try catch 捕获到 ？</a></p>
+<p>平常撸代码的时候，try catch 用的太多了，特别是一些 ”安全感” 低的人，基本是到处 try catch，生怕 JS 报错，然后页面整个挂掉了。</p>
+<p><a href="https://mp.weixin.qq.com/s/QFVzVEe8VZr8_Pp5nvtsSQ" target="_blank" rel="noopener">从0实现React 系列(二)：组件更新</a></p>
+<p>相较于首屏渲染的更新，非首屏渲染的更新会有一些不同，在这篇文章中我们来聊聊具体有哪些不同，以及这些不同是如何实现的。</p>
+<p><a href="https://mp.weixin.qq.com/s/3ssFqvxHiqkzGH3pQ3VULQ" target="_blank" rel="noopener">揭秘Vue中的Virtual Dom</a></p>
+<p>Vue.js 2.0引入Virtual DOM,比Vue.js 1.0的初始渲染速度提升了2-4倍，并大大降低了内存消耗。那什么是Virtual DOM？为什么需要Virtual DOM？它是通过什么方式去提升页面渲染效率的呢？这是本文所要探讨的问题。代码请查看<a href="https://github.com/ljianshu/Blog" target="_blank" rel="noopener">https://github.com/ljianshu/Blog</a></p>
+<p><a href="https://mp.weixin.qq.com/s/yyFq06N_AHLsJjecR2-Ftg" target="_blank" rel="noopener">小程序进阶之路：跨平台开发避坑指南</a></p>
+<p>小程序的开发不可避免的会面临跨平台开发的问题。各小程序平台有哪些特点？如何处理各平台的差异？本文分享淘票票在跨平台开发上的经验总结，包含了技术演进及差异控制策略，希望能帮助同学们提前避坑。</p>
+<p><a href="https://mp.weixin.qq.com/s/AejIOMNxsI_Ru5G0W8AeTg" target="_blank" rel="noopener">7 个建议让 Code Review 高效又高质</a></p>
+<p>Code Review（CR） 的本质是什么？是为了查错？还是为了 KPI？本文分享阿里资深技术专家的看法：CR 是一种关于社会学的长期行为和组织文化，通过 CR，形成一种良性互动的技术氛围，传播和分享知识，提升代码质量，并给出了 7 个提高 CR 效率和质量的实践建议。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/u9646">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.skypixel.com" target="_blank" rel="noopener">skypixel</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备20006007</a>
+        </p>
+</footer>
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script type="text/javascript">
+       (function() {
+           if (typeof LivereTower === 'function') { return; }
+
+           var j, d = document.getElementById('lv-container');
+
+           d.setAttribute('data-id','city');
+           d.setAttribute('data-uid' , 'MTAyMC80ODk2MS8yNTQ1NQ==');
+
+           j = document.createElement('script');
+           j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+           j.async = true;
+
+           d.appendChild(j);
+       })();
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+</html>
