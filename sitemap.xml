@@ -2,9 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.hotlinkhub.com/hotlink47/</loc>
+    
+    <lastmod>2020-06-23T14:08:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink46/</loc>
+    
+    <lastmod>2020-06-21T12:50:19.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.hotlinkhub.com/fe-3-interview/</loc>
     
-    <lastmod>2020-06-09T13:16:03.000Z</lastmod>
+    <lastmod>2020-06-21T07:18:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink45/</loc>
+    
+    <lastmod>2020-06-19T00:45:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink44/</loc>
+    
+    <lastmod>2020-06-17T12:49:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink43/</loc>
+    
+    <lastmod>2020-06-16T14:16:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink42/</loc>
+    
+    <lastmod>2020-06-15T12:36:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink41/</loc>
+    
+    <lastmod>2020-06-14T09:47:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/hotlink40/</loc>
+    
+    <lastmod>2020-06-10T12:15:26.000Z</lastmod>
     
   </url>
   
@@ -170,62 +226,6 @@
   </url>
   
   <url>
-    <loc>https://www.hotlinkhub.com/mongodb-query-and-projection-operators/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/js-new/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/js-prototype/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/jsbridge/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/lru/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/mongodb-curd-api/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/csp-frame-ancestors-vs-x-frame-options/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.hotlinkhub.com/react-fc-and-class-component-different/</loc>
-    
-    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.hotlinkhub.com/ts-interface-vs-type-aliases/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
@@ -234,6 +234,13 @@
   
   <url>
     <loc>https://www.hotlinkhub.com/why-super-props/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/csp-frame-ancestors-vs-x-frame-options/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
     
@@ -402,6 +409,55 @@
   
   <url>
     <loc>https://www.hotlinkhub.com/js-inheritance/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/js-new/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/js-prototype/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/jsbridge/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/lru/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/mongodb-curd-api/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/mongodb-query-and-projection-operators/</loc>
+    
+    <lastmod>2020-05-21T13:21:44.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hotlinkhub.com/react-fc-and-class-component-different/</loc>
     
     <lastmod>2020-05-21T13:21:44.000Z</lastmod>
     
