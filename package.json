@@ -1,0 +1,24 @@
+{
+  "name": "u9646.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devops": "git add . && git commit -m 'devops: update' && git push origin learn-chinese-characters",
+    "update": "node index.js && npm run devops",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u9646/u9646.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/u9646/u9646.github.io/issues"
+  },
+  "homepage": "https://github.com/u9646/u9646.github.io#readme",
+  "dependencies": {
+    "ali-oss": "^6.13.2"
+  }
+}
